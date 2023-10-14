@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<title>Fatal System Error</title>
+<link rel="icon" href="errico.png" />
+<div id="s"><style>
+body {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh4QlQp3cwaiegzNkpqa6_dhYRCtjrmNEqqX9fHPonAGwqS5gv4uSCrh7VLA4eZVAhiBc&usqp=CAU");
+  
+}
+</style></div>
+<link rel="icon" href="errico.png" />
+<img src="bsod.png" width="100%" style="display:none" id="img"/>
+<a href="javascript:openFullscreen()" id="a" hidden><button style="width: 100%">OK</button></a>
+<script>
+window.onclick = function(event) {
+  openFullscreen();
+}
+  
+function bsodstart() {
+  s.innerHTML = "<style>body {background: black}</style>";
+  img.style.display = "block";
+}
+
+var elem = document.documentElement;
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) {
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) {
+    elem.msRequestFullscreen();
+  }
+}
+  
+setTimeout(bsodstart,10000)
+</script>

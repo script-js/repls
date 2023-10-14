@@ -1,0 +1,63 @@
+<title>Microsoft Windows</title>
+<script src="script.js"></script>
+<link rel="icon" href="errico.png" />
+<button onclick="win.close()" style="position: absolute; left:47px; top: 177; height:33px; width: 222; border: 2px solid blue; background: white" hidden>OK</button>
+<img src='https://www.techrepublic.com/wp-content/uploads/2016/05/win-me-error.jpg' width='100%'>
+<audio loop autoplay>
+  <source src="ERR_!!!!.mp3" type="audio/mp3">
+</audio>
+<script>
+var win;
+function myFunction() {
+  i = i + 1;
+  var r1 = Math.floor(Math.random() * (600 - 200) + 200);
+  var r2 = Math.floor(Math.random() * (600 - 150) + 150);
+  if (i == 5) {
+    console.log("maxed")
+  } else {
+    win = window.open("/openerre.html", "", "width=" + r1 + ",height=" + r2);
+  }
+}
+
+myFunction()
+
+// Here are the initial values for our animation. 
+var x = 0, y = 0, w=200, h=200;  // Window position and size
+var dx = 5, dy = 5;              // Window velocity   
+var interval = 30;              // Milliseconds between updates
+
+// Create the window that we're going to move around.
+// The javascript: URL is simply a way to display a short document.
+// The final argument specifies the window size.
+
+// Set the initial position of the window.
+win.moveTo(x,y);
+
+// Use setInterval() to call the bounce() method every interval 
+// milliseconds. Store the return value so that we can stop the
+// animation by passing it to clearInterval().
+var intervalID  = window.setInterval("bounce()", interval);
+
+// This function moves the window by (dx, dy) every interval ms.
+// It bounces whenever the window reaches the edge of the screen.
+function bounce() {
+    // If the user closed the window, stop the animation.
+    if (win.closed) {
+        clearInterval(intervalID);
+        return;
+    }
+
+    // Bounce if we have reached the right or left edge.
+    if ((x+dx > (screen.availWidth - w)) || (x+dx < 0)) dx = -dx;
+
+    // Bounce if we have reached the bottom or top edge.
+    if ((y+dy > (screen.availHeight - h)) || (y+dy < 0)) dy = -dy;
+
+    // Update the current position of the window.
+    x += dx;
+    y += dy;
+
+    // Finally, move the window to the new position.
+    win.moveTo(x,y);
+}
+</script>

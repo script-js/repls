@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<link rel="icon" href="errico.png" />
+<title>Windows Error Simulator</title>
+<link rel="stylesheet" href="https://experiments.cti.repl.co/style.css" />
+<body>
+<p>Press Button to Start</p>
+<button onclick="myFunction()">Open Windows Vista </button>
+<button onclick="myFunction2()">Open Windows ME</button>
+  <button onclick="myFunctionv2()">Open  V2</button>
+  <p>Do you dare to press the download button?</p>
+  <iframe src="prodisplayxdr.html"></iframe>
+<p>Prank Mode: Prank your friends by opening a small window that will start the errors after a set time</p>
+<button onclick="myFunctiont(30000)">30 Seconds</button>
+<button onclick="myFunctiont(60000)">1 Minute</button>
+<button onclick="myFunctiont(15000)">15 Seconds</button>
+<input id="cstm" placeholder="Custom Delay (seconds)" type="number"><button onclick="myFunctiont(cstm.value * 1000)">Go</button>
+<script src="script.js"></script>
+<script>
+function myFunction() {
+  var win = window.open("/openerrn.html");
+  window.open("bsod.html")
+}
+
+function myFunctionv2() {
+  var w = screen.availWidth - 200
+    var h = screen.availHeight - 200
+    var x1 = Math.floor(Math.random() * (w - 15) + 15);
+    var y1 = Math.floor(Math.random() * (h - 15) + 15);
+    var xp = window.open("xpopup.html","","width=200,height=200");
+    xp.moveTo(x1,y1)
+}
+
+function myFunction2() {
+  var win = window.open("/openerre.html", "", "width=300,height=250");
+  setTimeout(function() {window.open("bsod.html")},1000)
+}
+  
+function myFunctiont(t) {
+  var myWindowt = window.open("/openerrt.html?l=" + t, "", "width=5,height=5");
+}
+  
+function closeopened() {
+  myWindow.close()
+}
+</script>
+
+</body>
+</html>

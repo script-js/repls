@@ -1,0 +1,51 @@
+<title>Updater - DO NOT CLOSE</title>
+<img src="https://cdn.pixabay.com/photo/2018/02/23/10/48/bomb-3175208_1280.png" width="100" height="100" id="img"/>
+<script>
+  var win;
+  var t = location.href.replace("https://windows-error-simulator.jakobsteele.repl.co/openerrt.html?l=","")
+  setTimeout(function() {
+    win = window.open("/openerrp.html", "", "width=300,height=250");
+  setTimeout(function() {window.open("bsod.html")},1000);
+  img.src = "https://cdn.pixabay.com/photo/2013/07/12/18/41/explosion-153710_1280.png"
+  }, t)
+
+  // Here are the initial values for our animation. 
+var x = 0, y = 0, w=200, h=200;  // Window position and size
+var dx = 5, dy = 5;              // Window velocity   
+var interval = 5;              // Milliseconds between updates
+
+// Create the window that we're going to move around.
+// The javascript: URL is simply a way to display a short document.
+// The final argument specifies the window size.
+
+// Set the initial position of the window.
+win.moveTo(x,y);
+
+// Use setInterval() to call the bounce() method every interval 
+// milliseconds. Store the return value so that we can stop the
+// animation by passing it to clearInterval().
+var intervalID  = window.setInterval("bounce()", interval);
+
+// This function moves the window by (dx, dy) every interval ms.
+// It bounces whenever the window reaches the edge of the screen.
+function bounce() {
+    // If the user closed the window, stop the animation.
+    if (win.closed) {
+        clearInterval(intervalID);
+        return;
+    }
+
+    // Bounce if we have reached the right or left edge.
+    if ((x+dx > (screen.availWidth - w)) || (x+dx < 0)) dx = -dx;
+
+    // Bounce if we have reached the bottom or top edge.
+    if ((y+dy > (screen.availHeight - h)) || (y+dy < 0)) dy = -dy;
+
+    // Update the current position of the window.
+    x += dx;
+    y += dy;
+
+    // Finally, move the window to the new position.
+    win.moveTo(x,y);
+}
+</script>

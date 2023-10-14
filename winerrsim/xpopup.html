@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<img src="errico.png" id="errimg" width="100%"/>
+<script>
+var win;
+  
+var arr = [true,false]
+  
+function myFunction() {
+  var r1 = Math.floor(Math.random() * (600 - 200) + 200);
+  var r2 = Math.floor(Math.random() * (600 - 150) + 150);
+    win = window.open("/openerrv2.html", "", "width=" + r1 + ",height=" + r2);
+  var choice = arr[(Math.floor(Math.random() * arr.length))]
+  if (choice == true) {
+    var w = screen.availWidth - 200
+    var h = screen.availHeight - 200
+    var x1 = Math.floor(Math.random() * (w - 15) + 15);
+    var y1 = Math.floor(Math.random() * (h - 15) + 15);
+    var xp = window.open("about:blank","","width=200,height=200");
+    var arr2 = ["errico.png","info.png","warning.png","question.png"]
+    xp.document.write("<img src='https://windows-error-simulator.script-js.repl.co/" + arr2[(Math.floor(Math.random() * arr2.length))] + "' width='100%'>")
+    xp.moveTo(x1,y1)
+  }
+}
+
+myFunction()
+  
+// Here are the initial values for our animation. 
+var x = 0, y = 0, w=200, h=200;  // Window position and size
+var dx = 5, dy = 5;              // Window velocity   
+var interval = 5;              // Milliseconds between updates
+
+// Create the window that we're going to move around.
+// The javascript: URL is simply a way to display a short document.
+// The final argument specifies the window size.
+
+// Set the initial position of the window.
+win.moveTo(x,y);
+
+// Use setInterval() to call the bounce() method every interval 
+// milliseconds. Store the return value so that we can stop the
+// animation by passing it to clearInterval().
+var intervalID  = window.setInterval("bounce()", interval);
+
+// This function moves the window by (dx, dy) every interval ms.
+// It bounces whenever the window reaches the edge of the screen.
+function bounce() {
+    // If the user closed the window, stop the animation.
+    if (win.closed) {
+        clearInterval(intervalID);
+        return;
+    }
+
+    // Bounce if we have reached the right or left edge.
+    if ((x+dx > (screen.availWidth - w)) || (x+dx < 0)) dx = -dx;
+
+    // Bounce if we have reached the bottom or top edge.
+    if ((y+dy > (screen.availHeight - h)) || (y+dy < 0)) dy = -dy;
+
+    // Update the current position of the window.
+    x += dx;
+    y += dy;
+
+    // Finally, move the window to the new position.
+    win.moveTo(x,y);
+}
+</script>
