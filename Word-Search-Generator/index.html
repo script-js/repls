@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Word search generator</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://script-js.github.io/js-css/darkice.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+  <link rel="icon" href="icon.png"
+</head>
+
+<body>
+  <script src="script.js"></script>
+  <div id="printReadyTitle"></div>
+  <noscript><h1 class="oswald" style="color: red;">Javascript is required</h1></noscript>
+  <div id="words">Number of Words: <input id="num" type="number" min="3"/><button onclick="ns()">Next</button></div>
+  <div id="newwords"></div>
+  <div id="wordlist" style="font-family: 'Oswald', sans-serif;"></div>
+  <div><img src='load.gif' style='width: 500px; height: 500px; display: none; margin:auto;' id="lodimg"></div>
+</body>
+
+</html>

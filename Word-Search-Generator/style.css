@@ -1,0 +1,51 @@
+html {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+.word {
+  color: white;
+}
+
+.word:hover {
+  color: yellow;
+}
+
+.wsbox {
+  word-wrap: break-word;
+  margin: auto;
+  line-height: 40px;
+  font-size: 30px;
+  letter-spacing: 20px;
+}
+
+#printReadyTitle {
+  display: none;
+}
+
+.oswald {
+  font-family: 'Oswald', sans-serif;
+}
+
+@media print {
+  #endctrl {
+    display: none;
+  }
+  #replitBadge {
+    display: none;
+  }
+  #printReadyTitle {
+    display: block;
+  }
+}
+
+@media (min-width: 600px) {
+  .wsbox {    
+    width: 500px;
+  }
+}
