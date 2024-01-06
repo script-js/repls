@@ -1,0 +1,50 @@
+/*Main Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Open+Sans&display=swap');
+/*Document Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Josefin+Sans:wght@300&family=Nanum+Gothic:wght@700&family=Oswald:wght@300&family=Raleway:wght@200&family=Redressed&family=RocknRoll+One&family=Shippori+Mincho:wght@500&family=Stick&display=swap');
+
+/*End of fonts list*/
+
+#controls {
+  font-family: sans-serif;
+}
+
+#txt {
+  font-size: 15px;
+  border: 1px solid;
+  white-space: pre-wrap;
+  font-family: 'Open Sans', sans-serif;
+}
+
+input[type="color"] {
+  width: 100px;
+}
+
+div::selection{
+  background: #00f7ff;
+}
+
+div::-moz-selection {
+  background: #00f7ff;
+}
+br::selection{
+  background: #00f7ff;
+}
+
+span::selection{
+  background: #00f7ff;
+}
+
+span::-moz-selection {
+  background: #00f7ff;
+}
+
+br::-moz-selection {
+  background: #00f7ff;
+}
+
+
+#txt a {
+  background-color: rgb(0, 132, 255);
+  cursor: pointer;
+}

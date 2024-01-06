@@ -1,0 +1,105 @@
+<!doctype html>
+<title>Cat Oasis President Connect</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap" rel="stylesheet">
+<style>
+  body {
+    color: yellow;
+    font-family: 'Hind Siliguri', sans-serif;
+    background-color: #1a1aff;
+  }
+
+  select {
+    font-family: 'Hind Siliguri', sans-serif;
+    background-color: #66ff66;
+    color: #0000ff;
+  }
+
+  input {
+    font-family: 'Hind Siliguri', sans-serif;
+    background-color: #66ff66;
+    color: #0000ff;
+  }
+
+  textarea {
+    font-family: 'Hind Siliguri', sans-serif;
+    background-color: #66ff66;
+    color: #0000ff;
+  }
+
+  button {
+    font-family: 'Hind Siliguri', sans-serif;
+    background-color: #66ff66;
+    color: #0000ff;
+  }
+</style>
+<script>
+  function view1() {
+    suggmeet.style.display = "block";
+    reqmat.style.display = "none";
+    c.style.display = "block";
+  }
+
+  function view2() {
+    suggmeet.style.display = "none";
+    reqmat.style.display = "block";
+    c.style.display = "block";
+  }
+
+  function send() {
+    window.open("https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=" + email.value + "&su=President Connect: Requesting " + sub.value + "&body=Requested " + sub.value + ": " + body1.value + "%0d%0aOther Comments:%0d%0a" + body2.value)
+  }
+
+  function closeall() {
+    suggmeet.style.display = "none";
+    reqmat.style.display = "none";
+    c.style.display = "none";
+  }
+</script>
+<p>What do you want to do?</p>
+<button onclick="view1()">Suggest a meeting time</button>
+<button onclick="view2()">Request materials, help or ideas</button>
+<button onclick="closeall()" id="c" style="display: none;">Close</button>
+<div id="suggmeet" style="display: none;">
+  <form action="mailto:steeljak000@edmonds15.org?cc=connetae000@edmonds15.org+gundecol000@edmonds15.org+rondechl000@edmond15.org+finnecha000@edmonds15.org&subject=Could we do a Cat Oasis Zoom Meeting" enctype="text/plain" method="post" target="_blank">
+    <input name="Time" placeholder="Meeting Time...">
+    <p></p>
+    <textarea name="About" placeholder="What is it about? (optional)"></textarea>
+    <p></p>
+    <input type="submit">
+  </form>
+</div>
+<div id="reqmat" style="display: none;">
+  <p>Who to Ask?</p>
+  <select id="email">
+    <option value="steeljak000@edmonds15.org+connetae000@edmonds15.org+gundecol000@edmonds15.org+rondechl000@edmond15.org+finnecha000@edmonds15.org">All</option>
+    <optgroup label="Oasis Inc.">
+      <option value="connetae000@edmonds15.org">Taelyn</option>
+    </optgroup>
+    <optgroup label="Cat Tomato Inc.">
+      <option value="steeljak000@edmonds15.org">Jakob</option>
+    </optgroup>
+    <optgroup label="Video Editors">
+      <option value="gundecol000@edmonds15.org">Colton</option>
+    </optgroup>
+    <optgroup label="Strawberry Co.">
+      <option value="rondechl000@edmond15.org">Chloe</option>
+    </optgroup>
+    <optgroup label="Cake Walk">
+      <option value="finnecha000@edmonds15.org">Charolotte</option>
+  </select>
+  <p>What are you requesting?</p>
+  <select id="sub">
+    <option value="none">-Select-</option>
+    <option value="materials">Materials</option>
+    <option value="advice">Ideas</option>
+    <option value="help">Help</option>
+  </select>
+  <p>Your question/material</p>
+  <input id="body1">
+  <p>Anything Else</p>
+  <textarea id="body2" style="width: 300px; height: 50px;"></textarea>
+  <p></p>
+  <button onclick="send()">Submit</button>
+</div>
+<div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4"><p style="padding:0;margin:0"><iframe src="https://padlet.com/embed/cbx9dmam85hyu3rk" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:608px;display:block;padding:0;margin:0"></iframe></p><div style="padding:8px;text-align:right;margin:0;"><a href="https://padlet.com?ref=embed" style="padding:0;margin:0;border:none;display:block;line-height:1;height:16px" target="_blank"><img src="https://padlet.net/embeds/made_with_padlet.png" width="86" height="16" style="padding:0;margin:0;background:none;border:none;display:inline;box-shadow:none" alt="Made with Padlet"></a></div></div>

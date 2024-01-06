@@ -1,0 +1,24 @@
+<!doctype html>
+<title>Oasis Inc. Contact Form</title>
+<script>
+function send() {
+  location.replace("mailto:taelynjc@gmail.com?cc=connetae000@edmonds15.org&body=My Name: " + n.value + "%0d%0aMessage: " + message.value + "%0d%0aI am" + member.value + " an Oasis Inc. Member")
+}
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="//js-css.cti.repl.co/styles/contact.css">
+<h2>Email Us</h2>
+<form action="javascript:send()" method="post">
+  <input id="n" placeholder="Name?" class="namebox">
+  <p></p>
+  <textarea id="message" placeholder="Message" class="messagebox"></textarea>
+  <p>Are you an Oasis Inc. Member?</p>
+  <select id="member" class="yesnobox">
+    <option>-Select-</option>
+    <option value=" ">Yes</option>
+    <option value="not">No</option>
+  </select>
+  <p></p>
+  <input type="submit" class="submitbutton">
+</form>

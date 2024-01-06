@@ -1,0 +1,339 @@
+<!doctype html>
+<link rel="icon" href="ico-High-Quality.jpg" />
+<link rel="stylesheet" href="/style.css" />
+<script src="//js-css.cti.repl.co/scripts/copy.js">
+</script>
+<script src="//js-css.cti.repl.co/scripts/hover.js">
+</script>
+<style>
+	p {
+		font-size: 17px;
+	}
+
+	@media print {
+		#txt {
+			border: none
+		}
+		#controls {
+			display: none
+		}
+		p {
+			display: none
+		}
+	}
+
+	.inline-icon-content {
+		transform: translate(0px, -200%);
+	}
+
+	#newdimg {
+		width: 100px;
+		height: 100px;
+	}
+
+	@media only screen and (max-width: 550px) {
+		#newdimg {
+			width: 70px;
+			height: 70px;
+		}
+	}
+
+	@media only screen and (max-width: 1170px) {
+		.inline-icon-content {
+			transform: none;
+		}
+	}
+</style>
+<div id="controls">
+	<datalist id="size-suggestions" onclick="go()">
+		<option value="15px">Normal Text</option>
+		<option value="20px"></option>
+		<option value="30px">Heading 2</option>
+		<option value="40px">Heading 1</option>
+		<option value="50px">Title</option>
+		<option value="60px"></option>
+		<option value="70px">Big Title</option>
+		<option value="80px"></option>
+		<option value="90px"></option>
+		<option value="100px"></option>
+	</datalist>
+	<p>Double-click a button to open the menu</p>
+	<a href="text-viewer.html?text=" target="_blank"><img src="ico-High-Quality.jpg" title="New Document" data-in-more-submenu="true" id="newdimg"></a> <div class="inline-icon-content" style="display: inline-block;"><input id="doctit" placeholder="Document Title" onchange="set_title()" maxlength="35">
+  <button id="insertc2">Insert</button>
+  <button id="sdc2">Saved Documents</button> 
+  <a href="https://sites.google.com/edmonds15.org/cthelp/articles/documents" target="_blank"><button>Help Center</button></a> <button onclick="ls()">Save</button>
+  <button onclick="check()">Print</button>
+  <button onclick="window.open('read.html?text=' + txt.innerText)">Read (Expirimental)</button>
+  <button onclick="replaceBadContent()">Make Document safe</button>
+  <button onclick="location.replace('editor.html?code=' + encodeURI(txt.innerHTML))">Edit as HTML</button>
+  Box Size: <input type="range" id="bxsz" min="400" max="5000" onchange="bsic()" width="180" value="400">
+  </div>
+  <div id="insertc" style="display: none">
+    Image: <input placeholder="URL" id="imgurl"><button onclick="insert_img()">Insert</button>
+    <p></p>
+    Link: <input id="linkurl" placeholder="URL" value="https://"> <input id="linkname" placeholder="Text"><button onclick="insert_link()">Insert</button><a href="https://sites.google.com/edmonds15.org/cthelp/articles/documents/links" target="_blank">Help</a>
+    <p></p>
+    Youtube: <input id="ytlink" placeholder="Youtube Link"><button onclick="insert_yt()">Insert</button>
+    <p></p>
+    List: <input id="listxt" placeholder="List Text"><button onclick="insert_lis2()">Insert</button> Sublist: <input id="listxt2" placeholder="List Text"><button onclick="insert_lis()">Insert</button>
+    <p></p>
+    Checkbox: <button onclick="insert_checkbox()">Insert</button>
+  Span with styling:
+  Colors:
+  text:
+  <input type="color" id="tc2">
+  Highlight:
+  <input type="color" id="bc2" value="#ffffff">
+  |
+  <input id="size2" placeholder="15px" list="size-suggestions">
+  <select id="font2">
+    <option value="'Open Sans', sans-serif" style="font-family: 'Open Sans', sans-serif;">OpenSans</option>
+    <option style="font-family: 'Times New Roman', Times, serif" value="'Times New Roman', Times, serif">Times New Roman</option>
+    <option value="sans-serif;">Sans-Serif</option>
+    <option value="cursive;" style="font-family: cursive;">Bubbles</option>
+    <option value="'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Trebuchet MS</option>
+    <option value="'DotGothic16', sans-serif;" style="font-family: 'DotGothic16', sans-serif;">DotGothic16</option>
+    <option value="'Josefin Sans', sans-serif;" style="font-family: 'Josefin Sans', sans-serif;">Josefin Sans</option>
+    <option value="'Nanum Gothic', sans-serif;" style="font-family: 'Nanum Gothic', sans-serif;">Nanum Gothic</option>
+    <option value="'Oswald', sans-serif;" style="font-family: 'Oswald', sans-serif;">Oswald</option>
+    <option value="'Raleway', sans-serif;" style="font-family: 'Raleway', sans-serif;">Raleway</option>
+    <option value="'RocknRoll One', sans-serif;" style="font-family: 'RocknRoll One', sans-serif;">RocknRoll One</option>
+    <option value="'Stick', sans-serif;" style="font-family: 'Stick', cursive;">Stick</option>
+    <option style="font-family: 'Akaya Telivigala', cursive;" value="'Akaya Telivigala', cursive;">Akaya Telivigala</option>
+    <option value="'Redressed', cursive;" style="font-family: 'Redressed', cursive;">Redressed</option>
+    <option value="'Shippori Mincho', serif;" style="font-family: 'Shippori Mincho', serif;">Shippori Mincho</option>
+  </select>Bold: <input type="checkbox" id="bold">Underline: <input type="checkbox" id="under"> Italic: <input type="checkbox" id="ita"><button onclick="insert_span()">Insert</button><button onclick="span_reset()">New Default</button>
+  </div>
+  <div id="sdc" style="display: none">
+    Link To this Document: <input type="text" id="lin" readonly><button onclick="copyById('lin')">Copy</button>
+    View a different Document:<input type="text" id="linkn" placeholder="Link to another document"><button onclick="location.replace(linkn.value)">Submit</button>
+    <button onclick="downloadInnerHtml(fileName, 'txt','text/plain');">Download plain text as txt file</button> <button onclick="downloadInnerHtml2(fileName2, 'txt','text/html');">Download as webpage</button>
+  </div>
+  <p>&nbsp;</p>
+  Text:
+  <input type="color" id="tc">
+  Highlight:
+  <input type="color" id="bc" value="#ffffff">
+  |
+  <input id="size" placeholder="15px" list="size-suggestions">
+  <select id="font">
+    <option value="'Open Sans', sans-serif" style="font-family: 'Open Sans', sans-serif;">OpenSans</option>
+    <option style="font-family: 'Times New Roman', Times, serif" value="'Times New Roman', Times, serif">Times New Roman</option>
+    <option value="sans-serif;">Sans-Serif</option>
+    <option value="cursive;" style="font-family: cursive;">Bubbles</option>
+    <option value="'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Trebuchet MS</option>
+    <option value="'DotGothic16', sans-serif;" style="font-family: 'DotGothic16', sans-serif;">DotGothic16</option>
+    <option value="'Josefin Sans', sans-serif;" style="font-family: 'Josefin Sans', sans-serif;">Josefin Sans</option>
+    <option value="'Nanum Gothic', sans-serif;" style="font-family: 'Nanum Gothic', sans-serif;">Nanum Gothic</option>
+    <option value="'Oswald', sans-serif;" style="font-family: 'Oswald', sans-serif;">Oswald</option>
+    <option value="'Raleway', sans-serif;" style="font-family: 'Raleway', sans-serif;">Raleway</option>
+    <option value="'RocknRoll One', sans-serif;" style="font-family: 'RocknRoll One', sans-serif;">RocknRoll One</option>
+    <option value="'Stick', sans-serif;" style="font-family: 'Stick', cursive;">Stick</option>
+    <option style="font-family: 'Akaya Telivigala', cursive;" value="'Akaya Telivigala', cursive;">Akaya Telivigala</option>
+    <option value="'Redressed', cursive;" style="font-family: 'Redressed', cursive;">Redressed</option>
+    <option value="'Shippori Mincho', serif;" style="font-family: 'Shippori Mincho', serif;">Shippori Mincho</option>
+  </select>Bold: <input type="checkbox" id="bold2">Underline: <input type="checkbox" id="under2"> Italic: <input type="checkbox" id="ita2"><button onclick="csts()">Go</button><button onclick="sel_reset()">Reset To Default</button>
+  </div>
+  
+</div>
+<div>
+  <p>Fullscreen</p>
+  <button onclick="fullscreen()">Fullscreen</button>
+  <button onclick='nf()' id='meow' style>Exit Fullscreen</button>
+</div>
+<script>
+function sc() {
+  txt.style = "width: 100%; height: " + bxsz.value + ";";
+}
+
+function ls() {
+  replaceBadContent();
+  location.replace("https://documents.cti.repl.co/text-viewer.html?text=" + txt.innerHTML)
+}
+
+function check() {
+  window.print();
+}
+
+function fullscreen() {
+  controls.style = "display: none;";
+  txt.style = "color: " + tc.value + "; background-color: " + bc.value + ";   font-family: " + font.value + "; font-size: " + size.value + "; width: 100%; min-height: 1000px; border: none;";
+  para.style = "display: none;"
+  meow.style = "display: block; background-color: " + bc.value + "; color: " + tc.value;
+  document.body.style.backgroundColor = bc.value;
+}
+
+function nf() {
+  txt.spellcheck = true;
+  controls.style = "display: block;";
+  txt.style = "color: " + tc.value + "; background-color: " + bc.value + ";   font-family: " + font.value + "; font-size: " + size.value + "; width: 100%; min-height: 400px;";
+  para.style = "display: block; float: right;"
+  meow.style = "display: none";
+  document.body.style.backgroundColor = "white";
+  document.exitFullscreen();
+  document.webkitExitFullscreen();
+}
+
+var li = window.location.href;
+
+var li = new URLSearchParams(window.location.search).get("text");
+
+var link = (decodeURI(li));
+link.replace("%0A","&#10")
+
+document.write("<div id='txt' contentEditable='true' style='width: 100%; height: 570px;' placeholder='Type Here...' spellcheck='true' tabindex='-1'>" + link + "</div>");
+lin.value = location.href;
+
+function insert_img() {
+  txt.innerHTML = txt.innerHTML + "<img src='" + imgurl.value + "'>"
+}
+
+function insert_link() {
+  txt.innerHTML = txt.innerHTML + "<a onclick='" + 'openLink("' + linkurl.value + '")' + "'>" + linkname.value + "</a>"
+}
+
+function openLink(thelink) {
+  window.open("https://m.cti.repl.co/redirect?" + thelink);
+}
+
+function insert_lis() {
+  txt.innerHTML = txt.innerHTML + "<ul><ul><li>" + listxt2.value + "</li></ul></ul>";
+  replaceBadContent()
+}
+
+function insert_lis2() {
+  txt.innerHTML = txt.innerHTML + "<li>" + listxt.value + "</li>";
+  replaceBadContent()
+}
+
+function end_lis() {
+  txt.innerHTML = txt.innerHTML + "</ul>"
+} 
+
+function insert_yt() {
+  replaceBadContent();
+  txt.innerHTML = txt.innerHTML + '<iframe width="560" height="315" src="https://youtube.com/embed/' + ytlink.value.replace("https://www.youtube.com/watch?v=","") + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+}
+
+function boldcheck() {
+  if (bold.checked == true) {
+    return "bold";
+  } else {
+    return "none";
+  }
+}
+
+function boldcheck2() {
+  if (bold2.checked == true) {
+    return "bold";
+  } else {
+    return "none";
+  }
+}
+
+function undercheck() {
+  if (under.checked == true) {
+    return "underline";
+  } else {
+    return "none";
+  }
+}
+
+function undercheck2() {
+  if (under2.checked == true) {
+    return "underline";
+  } else {
+    return "none";
+  }
+}
+
+function itcheck() {
+  if (ita.checked == true) {
+    return "italic";
+  } else {
+    return "none";
+  }
+}
+
+function itcheck2() {
+  if (ita2.checked == true) {
+    return "italic";
+  } else {
+    return "none";
+  }
+}
+
+function insert_span() {
+  txt.innerHTML = txt.innerHTML + '<span style="' +  "color: " + tc2.value + "; background-color: " + bc2.value + ";   font-family: " + font2.value + "; font-size: " + size2.value + "; font-weight: " + boldcheck() + "; text-decoration: " + undercheck() + "; font-style: " + itcheck() + ';">(highlight me and type)</span>';
+  replaceBadContent();
+}
+
+function set_title() {
+  txt.innerHTML =  "<title>CT Documents - " + doctit.value + "</title>" + txt.innerHTML;
+  replaceBadContent();
+}
+
+doctit.value = document.title.replace("CT Documents - ","");
+
+function replaceBadContent() {
+  txt.innerHTML = txt.innerHTML.replace("%"," percent");
+}
+
+function bsic() {
+  txt.style = "width: 100%; height: " + bxsz.value + "px;";
+}
+
+function csts() {
+  var sel = window.getSelection().toString();
+  if (sel == "") {
+    alert("Please Select Text")
+  } else {
+    txt.innerHTML = txt.innerHTML.replace(sel,'<span style="' +  "color: " + tc.value + "; background-color: " + bc.value + ";   font-family: " + font.value + "; font-size: " + size.value + "; font-weight: " + boldcheck2() + "; text-decoration: " + undercheck2() + "; font-style: " + itcheck2() + ';">' + sel + '</span>');
+  }
+}
+
+function span_reset() {
+  txt.innerHTML = txt.innerHTML + '<span style="font-size: 15px; font-family: '+ "'Open Sans'" + ', sans-serif; background-color: white; color: black; font-style: none; font-weight: none; text-decoration: none;">(highlight me and type)</span>';
+}
+
+function sel_reset() {
+  var sel = window.getSelection().toString();
+  if (sel == "") {
+    alert("Please Select Text")
+  } else {
+    txt.innerHTML = txt.innerHTML.replace('<span style="' +  "color: " + tc.value + "; background-color: " + bc.value + ";   font-family: " + font.value + "; font-size: " + size.value + "; font-weight: " + boldcheck2() + "; text-decoration: " + undercheck2() + "; font-style: " + itcheck2() + ';">' + sel + '</span>','<span style="font-size: 15px; font-family: ' + "'Open Sans'" + ', sans-serif; background-color: white; color: black; font-style: none; font-weight: none; text-decoration: none;">' + sel + '</span>');
+    txt.innerHTML = txt.innerHTML.replace(sel,'<span style="font-size: 15px; font-family: ' + "'Open Sans'" + ', sans-serif; background-color: white; color: black; font-style: none; font-weight: none; text-decoration: none;">' + sel + '</span>');
+  }
+}
+
+function insert_checkbox() {
+  txt.innerHTML = txt.innerHTML + "<input type='checkbox'>";
+}
+
+function downloadInnerHtml(filename, elId, mimeType) {
+  var elHtml = document.getElementById(elId).innerText;
+  var link = document.createElement('a');
+  mimeType = mimeType || 'text/plain';
+
+  link.setAttribute('download', filename);
+  link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
+  link.click(); 
+}
+
+function downloadInnerHtml2(filename, elId, mimeType) {
+  var elHtml = document.getElementById(elId).innerHTML + "<style>/*Main Fonts*/@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Open+Sans&display=swap');/*Document Fonts*/@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Josefin+Sans:wght@300&family=Nanum+Gothic:wght@700&family=Oswald:wght@300&family=Raleway:wght@200&family=Redressed&family=RocknRoll+One&family=Shippori+Mincho:wght@500&family=Stick&display=swap') body {font-family: 'Open Sans', sans-serif;}";
+  var link = document.createElement('a');
+  mimeType = mimeType || 'text/plain';
+
+  link.setAttribute('download', filename);
+  link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
+  link.click(); 
+}
+var fileName2 = document.title.replace("CT Documents - ","") + ".html";
+var fileName = document.title.replace("CT Documents - ","") + ".txt";
+</script>
+<script>
+pairhoverseeclick(insertc2,insertc);
+pairhoverseeclick(sdc2,sdc)
+</script>
+<title>CT Documents</title>

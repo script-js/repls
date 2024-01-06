@@ -1,0 +1,123 @@
+
+<!DOCTYPE html 
+      PUBLIC "-//W3C//DTD HTML 4.01//EN"
+      "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en-US">
+<head profile="http://www.w3.org/2005/10/profile">
+<link rel="icon" 
+      type="image/png" 
+      href="//news-cattomato.jakobsteele.repl.co/cnd/images/avatar.webp">
+</head>
+</html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Sign in Please!">
+    <title>Sign in to CTI Plus</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <script src="/script.js"></script>
+  </body>
+</html>
+<script>
+function log() {
+  var ipli = document.getElementById("p")
+  var name = document.getElementById("p2")
+  if (ipli.value == correct) {
+    lo.style.display = "block"
+    location.replace("/account/" + link1 + "/my-account/" + name.value.toUpperCase())
+  }
+  else {
+    var para = document.getElementById("text");
+    para.innerHTML = "Incorrect Password!";
+  }
+}
+</script>
+<style>
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-image: url('//news-cattomato.jakobsteele.repl.co/cnd/images/cattomato_MAIN (1).jpg');
+  
+}
+</style>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<body>
+    <div style="color:orange; font-size: 30px" class="center">Sign in</div>
+  </body>
+</html>
+<form action="javascript:log()">
+  <input id="p2" placeholder="Your Name" class="ibox"></input>
+  <p></p>
+  <input id="p" placeholder="CTI Password (May Appear Invisible)" class="ibox3"></input>
+  <p></p>
+  <input type="submit" value="Log In" class="ibox2">
+</form>
+<p></p>
+<p class="center">Don't have an account? <a id="myBtn" style="background-color:blue; color: yellow; text-decoration: underline; cursor: pointer;">Sign up</a> here!</p>
+<p id="text" style="color:#cc0000; font-size: 20px" class="center"><var></var></p>
+
+<div id="myModal" class="modal">
+
+<div class="modal-content">
+    <script>
+    function check() {
+      if (n.value == (""))
+        alert("You have not entered a name!")
+      }
+      if (j.value == (""))
+      alert("You have not entered a name!")
+      } 
+      if (r.value == (""))
+      alert("You have not entered a name!")
+      }
+      if (e.value == (""))
+      alert("You have not entered a name!")
+      }
+    }
+</script>
+    <span class="close">&times;</span>
+    <h2 class="center">Sign up</h2>
+    <form action="mailto:steeljak000@edmonds15.org?subject=CTI+Sign+Up+Form&body=Hi+Jakob,+I+Would+like+to+become+a+CTI+Member!+Here+is+my+Information! %0d%0a" method="post" enctype="text/plain" target="_blank">
+    <input class="ibox" type="text" name="Name" placeholder="Full Name" id="n">
+    <select class="ibox" type="text" name="Job"  id="j">
+      <option>-Select Job-</option>
+      <option>None</option>
+      <option>Actor</option>
+      <option>Choose For me</option>
+      <option>Video Game Designer</option>
+      <option>Creator (Not Avalible)</option>
+      <option>Contest organizer</option>
+    </select>
+    <textarea class="ibox" name="Resume" placeholder="Resume" id="r" style="height: 100px;"></textarea>
+    <input type="text" placeholder="E-mail" class="ibox" name="Email" id="e">
+    <input type="submit" value="Confirm Form Submission" class="ibox2" onclick="check()">
+    </form>
+    <h2>Not using your ESD Email? <a href="/sign-up/NON-ESD.html">Change Form type</a></h2>
+</div>
+<img src='//news-cattomato.jakobsteele.repl.co/cnd/images/CT_Loading.gif' id='lo' style='display: none;'>
+<script>
+
+var modal = document.getElementById("myModal");
+
+var btn = document.getElementById("myBtn");
+
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+  //Type nullMem() below if not accepting new members
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
