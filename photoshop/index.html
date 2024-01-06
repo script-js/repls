@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Photoshop</title>
+    <link rel="icon" href="propimg/mustache.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  </head>
+<style>
+body {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  background: black;
+}
+
+.drager {
+  position: absolute;
+  z-index: 9;
+  text-align: center;
+  cursor: move;
+}
+
+#container {
+	margin: 0px auto;
+  width: 100%;
+}
+#videoElement {
+	width: 55%;
+	background-color: #666;
+}
+
+.dot {
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+</style>
+<body>
+<h1>Add Props</h1>
+<p>doubleclick to delete</p>
+<p><button onclick="createprop('propimg/mustache.png')">Mustache</button><button onclick="createprop('propimg/beard.png')">Beard</button><button onclick="createprop('propimg/cat-ears.png')">Cat Ears</button><button onclick="createprop('propimg/glasses.png')">Glasses</button><button onclick="createprop('propimg/sunglasses.png')">Sunglasses</button> Custom: <input id="csprop" placeholder="Image Url"><button onclick="createprop(csprop.value)">Add</button></p><p>Text: <input id="txtval" placeholder="Text"><input type="color" id="txtclr"><input type="number" id="txtsize" value="20" placeholder="Font size"><button onclick="txt(txtval.value)">Go</button></p>
+<p>Custom Image: <input id="csimg" placeholder="Image URL"><button onclick="cs()">Set</button><a href="/file2url">Use computer files</a></p>
+<p>Draw: <input type="color" id="drawclr"><input type="number" placeholder="Size" value="15" id="drawsize"><button onclick="startdraw()">Start</button><button onclick="stopdraw()">Stop</button></p> 
+<div id="szcont"></div>
+<div id="cc"></div>
+<div id="pic_noblur" style="background: black;">
+<div id="container">
+  <video autoplay="true" id="videoElement">
+	
+	</video>
+</div>
+</div>
+<script>
+var i = 0;
+
+function cs() {
+  pic_noblur.innerHTML = "<img src='" + csimg.value + "'>";
+} 
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+function createprop(propimgname) {
+  i = i + 1;
+  var newrange = document.createElement("input")
+  newrange.setAttribute("type","range")
+  newrange.setAttribute("onchange","img" + i + ".style.height = this.value + 'px';")
+  newrange.setAttribute("min","50")
+  newrange.setAttribute("max","1000")
+  newrange.setAttribute("id","mydiv" + i + "_scontroler")
+  szcont.appendChild(newrange)
+  szcont.innerHTML = szcont.innerHTML + "<p></p>"
+  var md = document.createElement("div")
+  md.setAttribute("id","mydiv" + i);
+  md.setAttribute("class","drager")
+  md.setAttribute("ondblclick","trash('mydiv" + i + "','y')")
+  cc.appendChild(md)
+  document.getElementById("mydiv" + i).innerHTML = "<img src='" + propimgname + "' alt='Something went wrong when loading this image.' id='img" + i + "'>"
+  dragElement(document.getElementById("mydiv" + i));
+}
+
+var video = document.querySelector("#videoElement");
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      video.innerHTML = "Couldn't access webcam"
+    });
+}
+
+function trash(item,delyn) {
+  ded.appendChild(document.getElementById(item))
+  if (delyn == "y") {
+    ded.appendChild(document.getElementById(item + "_scontroler"))
+    ded.appendChild(document.getElementById(item + "_rcontroler"))
+  }
+}
+var i2 = 0
+
+function txt(words) {
+  i2 = i2 + 1;
+  var txt = document.createElement("div")
+  txt.setAttribute("ondblclick","trash('t" + i2 + "','n')")
+  txt.setAttribute("id","t" + i2)
+  txt.setAttribute("class","drager")
+  txt.setAttribute("style","color: " + txtclr.value + "; font-size: " + txtsize.value + "px")
+  cc.appendChild(txt);
+  document.getElementById("t" + i2).innerHTML = words;
+  dragElement(document.getElementById("t" + i2));
+}
+
+function startdraw() {
+  document.onmousedown = doingdraw
+}
+
+function doingdraw() {
+  document.onmousemove = draw
+  document.onmouseup = ed
+}
+
+function ed() {
+  document.onmouseup = null;
+  document.onmousemove = null;
+}
+
+function stopdraw() {
+  document.onmousedown = null;
+}
+var dotcount = 0
+function draw(e) {
+  dotcount = dotcount + 1
+  e = e || window.event;
+  e.preventDefault();
+  var d = document.createElement("div")
+  d.setAttribute("class","dot")
+  d.setAttribute("style","background-color: " + drawclr.value + "; position: absolute; top: " + e.clientY + "px; left: " + e.clientX + "px; width: " + drawsize.value + "px; height: " + drawsize.value + "px;")
+  cc.appendChild(d)
+}
+</script>
+<div id="ded" style="display:none"></div>
+</body>
+</html>
