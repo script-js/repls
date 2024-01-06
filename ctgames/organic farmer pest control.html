@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Organic Farmer: Pest Control | Cat Tomato Games</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="//js-css.cti.repl.co/styles/hiddencode.css">
+    <link rel="icon" href="/cnd/icon.png">
+  </head>
+</html>
+<style>
+body {background: black};
+</style>
+<noscript>
+  <div class="error-box"><h2>Please Enable JavaScript to Play this game</h2></div>
+</noscript>
+<script>
+var speed = 8000;
+var plants = ["plant1","plant2","plant3","plant4","plant5","plant6","plant7","plant8","plant9"];
+setTimeout(function() {
+  var bug = document.createElement("IMG")
+  var bugsrc = document.createAttribute("src")
+  bugsrc.value = "/cnd/bug.jpg";
+  var bugwidth = document.createAttribute("width")
+  bugwidth.value = "20";
+  bug.setAttributeNode(bugwidth)
+  var bugclick = document.createAttribute("onclick")
+  bugclick.value = "this.style.display = 'none'";
+  bug.setAttributeNode(bugclick)
+  bug.setAttributeNode(bugsrc)
+  var rand = plants[Math.floor(Math.random() * plants.length)];
+  document.getElementById(rand).appendChild(bug)
+  setTimeout(spawn,speed)
+},2000)
+function spawn() {
+  var bug = document.createElement("IMG")
+  var bugsrc = document.createAttribute("src")
+  bugsrc.value = "/cnd/bug.jpg";
+  var bugwidth = document.createAttribute("width")
+  bugwidth.value = "20";
+  bug.setAttributeNode(bugwidth)
+  var bugclick = document.createAttribute("onclick")
+  bugclick.value = "this.style.display = 'none'";
+  bug.setAttributeNode(bugclick)
+  bug.setAttributeNode(bugsrc)
+  var rand = plants[Math.floor(Math.random() * plants.length)];
+  document.getElementById(rand).appendChild(bug)
+  if (speed == 800) {
+    console.log("Max Speed Reached")
+    setTimeout(spawn,speed)
+    setTimeout(function() {gamebox.innerHTML = "Game Complete! <button class='smallbtn' onclick='location.reload()'>Play Again</button>"},20000)
+  } else {
+    speed = speed - 300;
+    console.log(speed)
+    setTimeout(spawn,speed)
+  }
+}
+</script>
+<div class="border-box" id="gamebox">
+  <div style="display: inline-block" id="plant1"><img src="/cnd/plant.jpg" width="150"></div><div style="display: inline-block" id="plant2"><img src="/cnd/plant.jpg" width="150"></div><div style="display: inline-block" id="plant3"><img src="/cnd/plant.jpg" width="150"></div>
+  <p></p>
+  <div style="display: inline-block" id="plant4"><img src="/cnd/plant.jpg" width="150"></div><div style="display: inline-block" id="plant5"><img src="/cnd/plant.jpg" width="150"></div><div style="display: inline-block" id="plant6"><img src="/cnd/plant.jpg" width="150"></div>
+  <p></p>
+  <div style="display: inline-block" id="plant7"><img src="/cnd/plant.jpg" width="150"></div><div style="display: inline-block" id="plant8"><img src="/cnd/plant.jpg" width="150"></div><div style="display: inline-block" id="plant9"><img src="/cnd/plant.jpg" width="150"></div>
+</div>

@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.border-box {
+  background-color: whitesmoke;
+  height: 100%;
+  box-align: center;
+  margin: auto;
+  width: 60%;
+  border: 2px solid rgb(0, 255, 179);
+  padding: 10px;
+}
+
+.border-box .fullimg {
+  width: 100%;
+  height: 100%;
+}
+
+.border-box .sbutton {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -0%);
+  width: 100px;
+  height: 50px;
+  display: block;
+}
+
+.border-box button {
+  font-family: 'Indie Flower', cursive;
+  background-color: blueviolet;
+  color: rgb(50, 205, 197);
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.border-box h2 {
+  font-family: 'Roboto', sans-serif;
+  color: rgb(0, 174, 255);
+}
+
+.border-box p {font-family: 'Indie Flower', cursive;}
+.border-box h3 {font-family: 'Indie Flower', cursive;}
+.border-box h1 {font-family: 'Indie Flower', cursive;}
+
+.border-box audio {
+  background-color: rgb(252, 0, 84);
+  width: 100%;
+}
+
+.border-box .stick {
+  position: sticky;
+}
+.border-box .smallbtn {
+  font-size: 15px
+}
+
+.error-box {
+  background-color: whitesmoke;
+  height: 100%;
+  box-align: center;
+  margin: auto;
+  width: 60%;
+  border: 4px solid rgb(187, 0, 0);
+  padding: 10px;
+  color: red;
+}
+
+.border-box .squarebox {
+  background-color: rgb(219, 218, 218);
+  height: 20%;
+  box-align: center;
+  margin: auto;
+  width: 90%;
+  padding: 10px; 
+  border: 2px solid slategrey;
+}
+
+.border-box .squarebox .minibox {
+  background-color: rgb(219, 218, 218);
+  height: 50px;
+  box-align: center;
+  width: 100px;
+  padding: 10px; 
+  border: 1px solid slategrey;
+  display: inline-block; 
+}
+
+.border-box .squarebox .longbox {
+  background-color: rgb(219, 218, 218);
+  height: 50px;
+  box-align: center;
+  width: 97%;
+  padding: 10px; 
+  border: 1px solid slategrey;
+  display: inline-block; 
+}

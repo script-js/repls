@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>House Explorer | Cat Tomato Games</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="//js-css.cti.repl.co/styles/hiddencode.css">
+    <link rel="icon" href="/cnd/icon.png">
+  </head>
+</html>
+<noscript>
+  <div class="error-box"><h2>Please Enable JavaScript to Play this game</h2></div>
+</noscript>
+<script>
+var ptchecker = setInterval(function() {
+  if (i == 120) {
+    clearInterval(ptchecker)
+    location.replace("youwon-he.html")
+  }
+},300)
+</script>
+<div class="hiddencodewrapper">
+  <hiddencode id="living_room_code">
+    <img src="https://imagesvc.meredithcorp.io/v3/mm/image?q=85&amp;c=sc&amp;poi=face&amp;w=1500&amp;h=1000&amp;url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F23%2F2021%2F03%2F05%2Fliving-room-ideas-bell-whistles.jpg" class="fullimg"/>
+    <inlinep>Places to look:</inlinep>
+    <button onclick="text.innerHTML = 'All you find here are some mothballs and old raisins'">Under the couch</button>
+    <button onclick="text.innerHTML = 'You find a peice of Jewlry'; lrcheckoff();">Under the Table</button>
+    <button onclick="lrcheck()">Behind the painting</button>
+  </hiddencode>
+  <hiddencode id="kitchen_code">
+    <img src="https://lda.lowes.com/is/image/Lowes/in_kitchen-remodeling-ideas-hero?scl=1" class="fullimg"/>
+    <inlinep>Places to look:</inlinep>
+    <button onclick="text.innerHTML = 'The oven is REALLY dirty *cough cough*'">Oven</button>
+    <button onclick="kcheck()">Cabinet under sink</button>
+    <button onclick="text.innerHTML = 'Nothing in there but dirty dishes'">Dishwasher</button>
+    <button onclick="kcheckoff(); text.innerHTML = 'You find a golden key in a bag at the back';">Refrigerator</button>
+  </hiddencode>
+  <hiddencode id="b1_code">
+    <img src="https://cdn.mos.cms.futurecdn.net/sbj3Y757EZpEFw4adsVVs8-768-80.jpg" class="fullimg"/>
+    <inlinep>Places to look:</inlinep>
+    <button onclick="text.innerHTML = 'Nothing but ALOT of dust.'">Under the bed</button>
+    <button onclick="b1check()">Inside Footrest</button>
+    <button onclick="b1checkoff(); text.innerHTML = 'You find a key'">Under rug</button>
+  </hiddencode>
+  <hiddencode id="b2_code">
+    <img src="https://www.digsdigs.com/photos/2019/01/09-a-cozy-vintage-inspired-guest-bedroom-with-twin-beds-and-wooden-floors-walls-and-a-ceiling.jpg" class="fullimg"/>
+    <inlinep>Places to look:</inlinep>
+    <button onclick="text.innerHTML = 'Just some books'">Under bed 1</button>
+    <button onclick="b2checkoff(); text.innerHTML = 'You find a key'">Under bed 2</button>
+    <button onclick="b2check();">On shelf</button>
+  </hiddencode>
+  <hiddencode id="bathroom_code">
+    <img src="https://i.insider.com/5e0a2bcb954bda7a1a0e5e43?width=700" class="fullimg"/>
+    <inlinep>Places to look:</inlinep>
+    <button onclick="text.innerHTML = 'EEEEWWW!!! Someone forgot to flush!'">Inside toilet</button>
+    <button onclick='text.innerHTML = "All thats in here is some bath toys"'>Bathtub</button>
+    <button onclick="bathcheck()">In cabinet</button>
+  </hiddencode>
+  <hiddencode id="family_room_code">
+    <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F37%2F2020%2F07%2F15%2Fneutral-living-room-white-fireplace-594af4cd.jpg&amp;q=85" class="fullimg"/>
+    <inlinep>Places to look:</inlinep>
+    <button onclick="text.innerHTML = 'Nothing there...'">Under Footrest</button>
+    <button onclick="famr()">Behind TV</button>
+  </hiddencode>
+</div>
+<style>
+body {background-color: black;}
+</style>
+<script>
+//detect if key is present
+var i = 0
+function earn() {
+  i = i + 20
+  pts.innerHTML = i + " Points";
+}
+function famr() {
+  text.innerHTML = "You find a safe that needs a password <input placeholder='Enter Password' id='pwd'><button onclick='famcheck()' class='smallbtn'>Submit</button>"
+}
+function famcheck() {
+  if (pwd.value == "748955") {
+    jackpot();
+    text.innerHTML = "Correct! +40 Points!";
+  } else {
+    text.innerHTML = "Wrong. Try Again. <input placeholder='Enter Password' id='pwd'><button onclick='famcheck()' class='smallbtn'>Submit</button>"
+  }
+}
+
+function jackpot() {
+  i = i + 40
+  pts.innerHTML = i + " Points";
+}
+
+var i2 = 0
+function lrcheckoff() {
+  i2 = 1
+}
+
+function lrcheck() {
+  if (i2 == 1) {
+    earn()
+    text.innerHTML = "You use the piece of jewelry to open a safe. +20 points";
+    i2 = i2 + 1
+  } else {
+    text.innerHTML = "You find a locked safe";
+  }
+}
+var i3 = 0
+function kcheckoff() {
+  i3 = i3 + 1 
+}
+
+function kcheck() {
+  if (i3 == 1) {
+    earn();
+    text.innerHTML = "You open a secret hatch in the back using the gold key. +20 Points";
+    i3 = i3 + 1
+  } else {
+    text.innerHTML = "The only thing here is a crack at the back and a garbage can"
+  }
+}
+var i4 = 0
+function b1checkoff() {
+  i4 = i4 + 1
+}
+function b1check() {
+  if (i4 == 1) {
+    earn();
+    text.innerHTML = "You use the key to open a small box inside. +20 points";
+    i4 = i4 + 1;
+  } else {
+    text.innerHTML = "You see some old scraps of paper and a box."
+  }
+}
+var i5 = 0
+function b2checkoff() {
+  i5 = i5 + 1
+}
+function b2check() {
+  if (i5 == 1) {
+    i5 = i5 + 1
+    text.innerHTML = "You open a compartment using the key you found and find another key";
+  } else {
+    text.innerHTML = "You find a locked compartment";
+  }
+}
+function bathcheck() {
+  if (i5 == 2) {
+    earn();
+    text.innerHTML = "You open the cabinet and find a paper that says 748955. +20 points";
+    i5 = i5 + 1;
+  } else if(i5 == 3 || i5 == 4) {
+    text.innerHTML = "748955";
+  } else {
+    text.innerHTML = "The cabinet is locked!";
+  }
+}
+//end
+
+
+var backbtn = "<button onclick='homescreen()' class='stick'><-- Choose another room</button><inlinep id='text'></inlinep>"
+function explore_l() {
+  gamecontentbox.innerHTML = backbtn + living_room_code.innerHTML;
+}
+
+function explore_k() {
+  gamecontentbox.innerHTML = backbtn + kitchen_code.innerHTML;
+}
+
+function explore_b1() {
+  gamecontentbox.innerHTML = backbtn + b1_code.innerHTML;
+}
+
+function explore_b2() {
+  gamecontentbox.innerHTML = backbtn + b2_code.innerHTML;
+}
+
+function explore_ba() {
+  gamecontentbox.innerHTML = backbtn + bathroom_code.innerHTML;
+}
+
+function explore_f() {
+  gamecontentbox.innerHTML = backbtn + family_room_code.innerHTML;
+}
+
+function homescreen() {
+  gamecontentbox.innerHTML = '<p>Choose a level</p>1. <button onclick="explore_l();">Living room</button><p></p>2. <button onclick="explore_k();">Kitchen</button><p></p>3. <button onclick="explore_b1();">Bedroom 1</button><p></p>4. <button onclick="explore_b2();">Bedroom 2</button><button onclick="explore_ba();">Bathroom</button><p></p>5. <button onclick="explore_f();">Family Room</button>';
+}
+</script>
+<div id="gamecontentbox" class="border-box">
+  <p>Choose a level</p>
+  1. <button onclick="explore_l();">Living room</button>
+  <p></p>
+  2. <button onclick="explore_k();">Kitchen</button>
+  <p></p>
+  3. <button onclick="explore_b1();">Bedroom 1</button>
+  <p></p>
+  4. <button onclick="explore_b2();">Bedroom 2</button><button onclick="explore_ba();">Bathroom</button>
+  <p></p>
+  5. <button onclick="explore_f();">Family Room</button>
+</div>
+<div class="border-box">
+  <h2 id="pts">0 Points</h2>
+  <audio controls autoplay loop>
+    <source src="/cnd/house-explorer-bkg.mp3">
+  </audio>
+</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Food Fight! | Cat Tomato Games</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="//js-css.cti.repl.co/styles/hiddencode.css">
+    <link rel="icon" href="/cnd/icon.png">
+  </head>
+</html>
+<style>
+body {background: black};
+</style>
+<noscript>
+  <div class="error-box"><h2>Please Enable JavaScript to Play this game</h2></div>
+</noscript>
+<script>
+var arr = ["o1","o2","o3","o4","o5","o6","o7","o8","o9"]
+function switchb() {
+  var bid = arr[Math.floor(Math.random() * arr.length)];
+  document.getElementById(bid).appendChild(pie);
+}
+
+var switcher = setInterval(switchb,100);
+
+function yay() {
+  text.innerHTML = "YAAAAY You won! <button class='smallbtn' onclick='location.reload();'>Play Again</button>";
+  splat.autoplay = true;
+  splat.play();
+  bkgm.autoplay = false;
+  bkgm.pause();
+  clearInterval(switcher);
+}
+</script>
+<div class="border-box" id="gamebox">
+  <p id="text"></p>
+  <div class="squarebox">
+    <p><div class="minibox" id="o1"><img src="/cnd/pie.png" id="pie" width="90" height="40" onclick="yay()" style="user-select: none;"></div><div class="minibox" id="o2"></div><div class="minibox" id="o3"></div><div class="minibox" id="o4"></div><div class="minibox" id="o5"></div><div class="minibox" id="o6"></div><div class="minibox" id="o7"></div><div class="minibox" id="o1"></div><div class="minibox" id="o8"></div><div class="minibox" id="o9"></div>
+  <audio controls autoplay id="bkgm">
+    <source src="/cnd/ff-bkg-music.mp3">
+  </audio>
+</div>
+<audio id="splat">
+  <source src="/cnd/Cartoon-splat-sound effect.mp3">
+</audio>

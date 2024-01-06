@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Organic Farmer | Cat Tomato Games</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="//js-css.cti.repl.co/styles/hiddencode.css">
+    <link rel="icon" href="/cnd/icon.png">
+  </head>
+</html>
+<style>
+body {background: black};
+</style>
+<noscript>
+  <div class="error-box"><h2>Please Enable JavaScript to Play this game</h2></div>
+</noscript>
+
+<div class="border-box">
+  <p id="text"></p>
+  <div id="flowers" style>
+  <button onclick='alert("Farmer Brown says:\nThe correct plants are " + rand_1 + ", " + rand_2 + ", and " + rand_3); cfbb.onclick = function() {alert("Farmer Brown says:\nWhy do you keep asking me? I already told you");}' class="smallbtn" id="cfbb">Call farmer brown to help you</button>
+  <P></P>
+  <img id="plant1" src="/cnd/plant.jpg" width="150" onclick="lose()">
+  <img id="plant2" src="/cnd/plant.jpg" width="150" onclick="lose()">
+  <img id="plant3" src="/cnd/plant.jpg" width="150" onclick="lose()">
+  <p></p>
+  <img id="plant4" src="/cnd/plant.jpg" width="150" onclick="lose()">
+  <img id="plant5" src="/cnd/plant.jpg" width="150" onclick="lose()">
+  <img id="plant6" src="/cnd/plant.jpg" width="150" onclick="lose()">
+  <p></p>
+  <img id="plant7" src="/cnd/plant.jpg" width="150" onclick="lose()">
+  <img id="plant8" src="/cnd/plant.jpg" width="150" onclick="lose()">
+  <img id="plant9" src="/cnd/plant.jpg" width="150" onclick="lose()">
+  </div>
+  <div id="clean"></div>
+  <audio id="sfx1">
+    <source src="/cnd/Cartoon-woohoo.mp3">
+  </audio>
+  <audio id="sfx2">
+    <source src="/cnd/aww_man.mp3">
+  </audio>
+  <audio id="bkgm" controls autoplay loop>
+    <source src="/cnd/of-bkg.mp3">
+  </audio>
+</div>
+<script>
+var plants = ["plant1","plant2","plant3","plant4","plant5","plant6","plant7","plant8","plant9"]
+var rand_1 = plants[Math.floor(Math.random() * plants.length)];
+var rand_2 = plants[Math.floor(Math.random() * plants.length)];
+var rand_3 = plants[Math.floor(Math.random() * plants.length)];
+var i = 0
+
+document.getElementById(rand_1).onclick = function() {
+  sfx1.play();
+  i = i + 1;
+  document.getElementById(rand_1).onclick = function() {text.innerHTML = "You already checked this one. If Farmer brown says multiple of the same one, <button onclick='location.reload()' class='smallbtn'>Reload</button>";  setTimeout(function() {text.innerHTML = ""},3000)};
+}
+
+document.getElementById(rand_2).onclick = function() {
+  sfx1.play();
+  i = i + 1;
+  document.getElementById(rand_2).onclick = function() {text.innerHTML = "You already checked this one. If Farmer brown says multiple of the same one, <button onclick='location.reload()' class='smallbtn'>Reload</button>";  setTimeout(function() {text.innerHTML = ""},3000)};
+}
+
+document.getElementById(rand_3).onclick = function() {
+  sfx1.play();
+  i = i + 1;
+  document.getElementById(rand_3).onclick = function() {text.innerHTML = "You already checked this one. If Farmer brown says multiple of the same one, <button onclick='location.reload()' class='smallbtn'>Reload</button>";  setTimeout(function() {text.innerHTML = ""},3000)};
+}
+
+var checki = setInterval(function() {
+  if (i == 3) {
+    text.innerHTML = "YAAAAY You won! <button class='smallbtn' onclick='location.reload()'>Play Again</button>";
+    flowers.style = "display:none";
+    sfx1.play();
+    clean.appendChild(document.getElementById(rand_1))
+    clean.appendChild(document.getElementById(rand_2))
+    clean.appendChild(document.getElementById(rand_3))
+    bkgm.pause();
+    clearInterval(checki)
+  }
+},100)
+
+function lose() {
+  text.innerHTML = "OOPS! This plant has been sprayed! You now have to burn all your crops.<button class='smallbtn' onclick='location.reload();'>Try Again</button>";
+  flowers.style = "display:none";
+  sfx2.play();
+  bkgm.pause();
+}
+</script>

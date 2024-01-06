@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>MyDataSite Editor</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="//js-css.cti.repl.co/scripts/webSecure.js"></script>
+</head>
+
+<body>
+  <script src="script.js"></script>
+  <div style="text-align:center">
+    <button onclick="output.src = 'data:text/html;base64,' + btoa(code.value)">Run ▶</button> <button onclick="runsync = true;">Auto-Run On</button><button onclick="runsync = false;">Auto-Run Off</button> <a href="//documents.cti.repl.co" target="_blank">Help with Styling</a> <button onclick="download('mdssite.html','code')">Download HTML</button>
+    <br>
+    <input id="link" readonly><button onclick="link.select();document.execCommand('copy')">Copy link</button>
+  </div>
+  <textarea style="width:49%;height:98%; resize:none;" id="code" spellcheck="false"></textarea>
+  <iframe id="output" style="width:48%;height:98%;position:absolute;right:0px;border:2px solid;">Error!</iframe>
+</body>
+<script>
+var runsync = false;
+function synclink() {
+  link.value = "https://mydatasite.cti.repl.co/site/?" + btoa("<!DOCTYPE HTML><script src='https://mydatasite.cti.repl.co/script.js'>" + eet + code.value.replace("location.replace","locationReplace"))
+  if (runsync == true) {
+    output.src = 'data:text/html;base64,' + btoa(code.value)
+  }
+}
+
+window.onkeydown = function() {
+  synclink()
+}
+disableIframes()
+s("https://mydatasite.cti.repl.co/","")
+
+function download(filename, elId) {
+  var elHtml = document.getElementById(elId).value;
+  var link = document.createElement('a');
+  mimeType = 'text/plain';
+
+  link.setAttribute('download', filename);
+  link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
+  link.click(); 
+}
+</script>
+</html>

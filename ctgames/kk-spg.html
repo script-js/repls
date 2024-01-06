@@ -1,0 +1,19 @@
+<!doctype html>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+button {
+  font-family: 'Indie Flower', cursive;
+  background-color: blueviolet;
+  color: rgb(50, 205, 197);
+  font-size: 30px;
+}
+</style>
+<h3>Great Game!</h3>
+<button onclick='share()'>Share Your Score</button>
+<script>
+function share() {
+  var mh = document.getElementById("mh")
+  location.replace("https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&su=Check out my score on kitty kwest!&body=I Earned " + i + " points!++++++++Check it out at games.cti.repl.co") 
+}
+</script>
