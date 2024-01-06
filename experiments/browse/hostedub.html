@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<head>
+<link rel="icon" id="hphficon" href="https://experiments.cti.repl.co/browse/icon.png" />
+<link rel="stylesheet" href="https://experiments.cti.repl.co/style.css">
+</head>
+<body>
+<title>UnblockBrowser</title>
+<noscript><h1 style="color:blue;background:red;">JavaScript is disabled! Please enable it.</h1></noscript><button onclick="openFullscreen()">Full Screen</button>&nbsp;Browser Size: <input type="range" value="700" max="1100" min="500" onchange="browser.height = this.value + 'px'">
+<div id="hphc"></div>
+<script src="https://hapara-hider.script-js.repl.co/import.js"></script>
+<iframe id="browser" frameborder="0" width="100%" height="700px" src="https://replit.com/@JakobSteele/ub-embed?embed=true"></iframe>
+<script>
+var elem = document.getElementById("browser");
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) {
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) {
+    elem.msRequestFullscreen();
+  }
+}
+    
+function inettest() {
+  if ((window.navigator.onLine ? 'on' : 'off') == "off") {
+    document.body.innerHTML = "<div style='color:red; font-family: sans, sans-serif;'><h1>Uh Oh! You have no internet connection!</h1><h3>You need internet to run UnblockBrowser</h1><button onclick='location.reload()'>Retry</button></div>";
+    document.body.style.backgroundColor = "aqua";
+    document.title = "No Internet - UnblockBrowser"
+    setTimeout(function() {location.reload()}, 3000)
+  }
+}
+inettest()  
+    
+    
+setInterval(inettest, 1000)
+</script>
+</body>

@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+
+* {
+  color: darkblue;
+  font-family: 'Henny Penny', cursive;
+  border: 2px solid greenyellow;
+  
+}
+
+button {
+  background-color: coral;
+  cursor: not-allowed;
+}
+
+button:hover {
+  transform: translate(300%, 0px);
+}
+
+body {
+  background-color: #9c6300;
+}
+
+div {
+  background-color: darkred;
+  cursor: help;
+}
+
+#background-image {
+  height: 200px;
+  transform: translate(30%, 120px);
+  cursor: wait;
+}
+
+#lesson-splash-continue-button-button {
+  color: lightblue;
+  background: pink;
+  width: 500px;
+  height: 500px;
+  cursor: wait;
+}
+
+img {
+  cursor: wait;
+}
+
+iframe {
+  transform: translate(-3px, -6%);
+  border: 80px solid orangered;
+  frameborder: 80;
+  height: 100px;
+  width: 100%;
+  cursor: not-allowed;
+}
+
+iframe:hover {
+  height: 1000px;
+}
+ 
+span {
+  border: 7px solid hotpink;
+  color: sandybrown;
+  cursor: wait;
+}
+
+.node_modules--cainc-cauliflower-src-components-layout-___Layout__layout-flex node_modules--cainc-cauliflower-src-components-layout-___Layout__align-items-center node_modules--cainc-cauliflower-src-components-layout-___Layout__justify-content-space-between css-mkxdf9 e15psnz0 {
+  background-color: lighten; 
+}
+
+span:hover {
+  transform: translate(300%, 0px);
+}
+
+div:hover {
+  transform: translate(10%, 0px);
+}
+
+a {
+  background-color: lighten;
+  cursor: not-allowed;
+}
+
+a:hover {
+  transform: translate(300%, 0px);
+  background-color: black
+}

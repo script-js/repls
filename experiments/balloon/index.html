@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Balloon | CTI Experiments</title>
+    <link rel="icon" href="/icon.png" />
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <script src="/script.js"></script>
+  </head>
+  <body>
+    <script>
+      var interval;
+      function start() {
+        interval = setInterval (function() {
+          img.width = Number(img.width) + Number(eh.value)
+          img.height = Number(img.height) + Number(ev.value)
+        }, rate.value)
+      }
+    </script>
+    <button onclick="start()">Start</button>
+    Fast <input id="rate" type="range" max="100" min="30" value="50"> Slow
+    <input placeholder="Image url..." onchange="img.src = this.value">
+    Vertical Stretch: <input type="range" id="ev" max="5" min="1" value="1">
+      Horizantal Stretch: <input type="range" id="eh" max="5" min="1" value="1">
+    <p>&nbsp;</p>
+    <img id="img" width="10" height="10" src="https://m.media-amazon.com/images/I/51jkfjVTbfL._AC_SL1200_.jpg" />
+  </body>
+</html>

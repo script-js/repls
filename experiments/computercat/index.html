@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ComputerCat | CTI Experiments</title>
+    <link rel="icon" href="/icon.png" />
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <style>
+    .b {
+      background: rebeccapurple;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 80px;
+      height: 70px;
+    }
+
+    .b:hover {
+      opacity: 0.7;
+    }
+  </style>
+  <body>
+    <a href="/"><button class="backbtn"><- Home &nbsp;<img src="/home.png" width="30" height="30"></button></a>
+    <h3>This ComputerCat is feeling</h3>
+    <h1 id="emoji">😸</h1>
+    <p id="feeling">(Happy)</p>
+    <div style="border: 2px solid hotpink;">
+      
+    </div>
+    <p></p>
+    <button class="b" onclick="getLibFeelingChange('play')">Toy</button>
+    <button class="b" onclick="getLibFeelingChange('play2')">Catnip</button>
+    <button class="b" onclick="getLibFeelingChange('yum')">Food</button>
+    <button class="b" onclick="getLibFeelingChange('h2o')">Water</button>
+    <button class="b" onclick="getLibFeelingChange('pet')">Pet</button>
+    <button class="b" onclick="getLibFeelingChange('bed')">Cuddle</button>
+    <button class="b" onclick="getLibFeelingChange('room')">Lock Away</button>
+  </body>
+  <script>
+    var w = 0;
+    var f = 0;
+    var l = false;
+    function getLibFeelingChange(btnPressed) {
+      if (btnPressed == "btim" && l == false) {
+        feeling.innerHTML = "Your cat has thrown up!"
+        emoji.innerHTML = "🤮"
+      }
+      if (btnPressed == "htim" && f == 0) {
+        feeling.innerHTML = "(Hungry)"
+        emoji.innerHTML = "🍴"
+      }
+      if (btnPressed == "yum") {
+        f = f + 1;
+      }
+      if (btnPressed == "stim" && l == true) {
+        feeling.innerHTML = ""
+        emoji.innerHTML = ""
+      }
+      if (btnPressed == "bed") {
+        feeling.innerHTML = "(Cozy)"
+        emoji.innerHTML = "😽"
+      }
+      if (btnPressed == "play") {
+        feeling.innerHTML = "Your Cat is having fun!"
+        emoji.innerHTML = "<img src='https://i.pinimg.com/originals/e8/8f/dc/e88fdceb6fccbe5639bff8cfb2b7103b.gif'/>"
+        
+      }
+      if (btnPressed == "play2") {
+        feeling.innerHTML = ""
+        emoji.innerHTML = "<img src='https://c.tenor.com/jo8l4k43niIAAAAd/kitty-jump.gif'/>"
+      }
+      if (btnPressed == "") {
+        feeling.innerHTML = ""
+        emoji.innerHTML = ""
+      }
+    }
+    setInterval(getLibFeelingChange('htim'), 20000)
+    setInterval(getLibFeelingChange('wtim'), 20000)
+    setInterval(getLibFeelingChange('btim'), 30000)
+    setInterval(getLibFeelingChange('stim'), 10000)
+    emoji.innerHTML = "😸";
+    feeling.innerHTML = "(Happy)"
+    
+    setInterval(function() {
+      if ()
+    }, 1000)
+  </script>

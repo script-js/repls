@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Bookmark Hacks | CTI Experiments</title>
+    <link rel="icon" href="/icon.png" />
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <script src="/script.js"></script>
+  </head>
+  <body>
+    <a href="/"><button class="backbtn"><- Home &nbsp;<img src="/home.png" width="30" height="30"></button></a>
+    <h2>Start</h2>
+    <h3>Choose a Hack</h3>
+    <a href="https://BookmarkHacks.jakobsteele.repl.co/howto.html" target="_blank">How to use</a>
+    <p id="page_editor"><strong>Page Editor: Edit any text on a page!</strong></p>
+  <a href="javascript:void(document.designMode = 'on')"><button>Page Editor On</button></a>
+  <a href="javascript:void(document.designMode = 'off')"><button>Page Editor Off</button></a>
+    <p id="explode"><strong>Explode: Explodes your page</strong></p>
+  <a id="aerr1" href><button>Explode</button></a>
+    <p id="page-play"><strong>Page-Play: for when you can't access DevTools</strong></p>
+    <a href="javascript:eval(prompt('Enter code here:'))"><button>P-P play JS</button></a>
+    <a href="javascript:javascript:document.body.insertAdjacentHTML('beforeend','<br>' + prompt('HTML Code:'))"><button>P-P play HTML</button></a>
+    <p id="plainpage"><strong>PlainPage: Remove all JS and CSS</strong></p>
+    <a href="javascript:void(document.getElementsByTagName('head')[0].innerHTML = '')"><button>PlainPage</button></a>
+    <p id="linkdocb"><strong>LinkDoc Bookmarklet</strong></p>
+    <a id="aerr8"><button>Save to LinkDoc</button></a>
+    <p id="webdestroyer"><strong>webdestroyer + die-Ready: Kill any webpage. (die-Ready designed for i-Ready but may work on other sites better than webdestroyer)</strong></p>
+    <a id="aerr3" href><button>webdestroyer</button></a>
+    <a href id="aerr2"><button>die-Ready</button></a>
+    <p id="hapara_hider"><strong>Hapara Hider: Disguise your tabs from Hapara.</strong> NOTE: You may need Get Favicon to change a page's icon.</p>
+    <a href="javascript:void(document.title = prompt('Title?'))"><button>Hapara Hider: Change Title</button></a>
+      <a id="aerr4"><button>Hapara Hider: Change Favicon</button></a>
+    <a id="aerr6"><button>Hapara Hider: Embed Site</button></a>
+    <a href="javascript:void(ubrowser_frame.src = prompt('Site to Embed?')"><button>Hapara Hider: Change Embedded Webpge</button></a>
+    <p id="getdetails"><strong>GetDetails: Get the link to a website's favicon or title.</strong> NOTE: Get Favicon may not work on some websites.</p>
+    <a id="aerr5"><button>Get Favicon</button></a>
+    <a href="javascript:alert(document.title)"><button>Get Title</button></a>
+    <p id="canvas_confetti"><strong>Canvas Confetti: Make canvas come with confetti. Reload again and again for an endless round of confetti!</strong></p>
+    <a href="javascript:void(location.replace(location.href + '?confetti=true'))"><button>CANFETTI!</button></a>
+
+  <
+  </body>
+</html>
+<script> 
+    var aerr2h2 = "'stylesheet'";
+    var aerr2h3 = "'https://expirements.cti.repl.co/bookmarkhacks/colorswitcher.css'"
+    var aerr6h4 = "'width:1px;height:1px;'";
+    var aerr6h8 = ""
+    var aerr6h3 = "'";
+    var aerr6h7 = "'ubrowser_frame.requestFullscreen()'"
+    var aerr6h6 = "'position:absolute; left:1px; top: 1px;'"
+    var aerr6h5 = "'ubrowser_frame'"
+    var aerr4h2 = '"icon"'
+    var aerr6h2 = '"<br><button style=' + aerr6h6 + ' onclick=' + aerr6h7 + '>OpenHS</button><iframe id=' + aerr6h5 + ' src=' + aerr6h3 + '" + prompt("Site to embed?") + "' + aerr6h3 + ' style=' + aerr6h4 + '></iframe>"'
+    var aerr2h = 'javascript:void(document.getElementsByTagName("head")[0].innerHTML = document.getElementsByTagName("head")[0].innerHTML + "<link rel=' + aerr2h2 + ' href=' + aerr2h3 + '><title>die-Ready</title>")'
+  aerr3.href = 'javascript:void(document.getElementsByTagName("head")[0].innerHTML = "<link rel=' + aerr2h2 + ' href=' + aerr2h3 + '><title>" + document.title + ", destroyed by webdestroyer</title>")'
+  aerr2.href = aerr2h;
+  aerr4.href = "javascript:void(document.querySelector('link[rel~=" + aerr4h2 + "]').href = prompt('Icon URL'))"
+  aerr5.href = "javascript:alert(document.querySelector('link[rel~=" + aerr4h2 + "]').href)"
+    var aerr1h = '"https://c.tenor.com/N53ksdiUNcoAAAAM/explosion-boom.gif" width="100%"'
+    aerr1.href = "javascript:void(document.write('<img src=" + aerr1h + "><title>boom.</title>'))"
+  aerr6.href = "javascript:document.body.insertAdjacentHTML('beforeend'," + aerr6h2 + ")";
+  var aerr8h2 = '"'
+  aerr8.href = "javascript:window.open('//experiments.cti.repl.co/linkdoc/save.html?addition=<a href=" + aerr8h2 + "' + location.href + '" + aerr8h2 + " target=" + aerr8h2 + "_blank" + aerr8h2 + ">' + document.title + '</a>')"
+</script>

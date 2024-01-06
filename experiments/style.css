@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+
+* {
+  font-family: 'Mochiy Pop P One', 'Trebuchet MS', sans-serif;
+  background: rgb(57, 243, 243);
+}
+
+h1 {
+  background: none;
+}
+
+h2 {
+  background: none;
+}
+
+h3 {
+  background: none;
+}
+
+p {
+  font-size: 15px;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+  color: firebrick;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: yellow;
+  font-weight: bolder;
+}
+
+.backbtn {
+  background: rebeccapurple;
+}
+
+button {
+  cursor: pointer;
+}
