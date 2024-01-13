@@ -5,5 +5,5 @@
 </iframe>
 <script>
 var urlcontent = new URLSearchParams(window.location.search).get("id")
-d.src = "data:text/html;base64," + urlcontent
+d.src = "data:text/html;base64," + decodeURI(urlcontent)
 </script>
