@@ -4,5 +4,6 @@
 <iframe id="d" style="width:99%;height:99%;" frameborder="0">
 </iframe>
 <script>
-d.src = "data:text/html;base64," + location.href.replace("https://mydatasite.cti.repl.co/site/?","")
+var urlcontent = new URLSearchParams(window.location.search)
+d.src = "data:text/html;base64," + urlcontent
 </script>
