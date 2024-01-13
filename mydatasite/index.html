@@ -15,7 +15,7 @@
   <div style="text-align:center">
     <button onclick="output.src = 'data:text/html;base64,' + btoa(code.value)">Run ▶</button> <button onclick="runsync = true;">Auto-Run On</button><button onclick="runsync = false;">Auto-Run Off</button> <a href="//documents.cti.repl.co" target="_blank">Help with Styling</a> <button onclick="download('mdssite.html','code')">Download HTML</button>
     <br>
-    <input id="link" readonly><button onclick="link.select();document.execCommand('copy')">Copy link</button><button onclick="getLink(link.value,prompt('URL Suffix:')">Shorten URL</button>
+    <input id="link" readonly><button onclick="link.select();document.execCommand('copy')">Copy link</button><button onclick="getLink(link.value,prompt('URL Suffix:'))">Shorten URL</button>
   </div>
   <textarea style="width:49%;height:98%;resize:none;background:#333333;border:2px solid;" id="code" spellcheck="false"></textarea>
   <iframe id="output" style="width:48%;height:98%;position:absolute;right:0px;border:2px solid;background:white;">Error!</iframe>
