@@ -36,6 +36,7 @@ function show_image(src, width, height, alt) {
   img.style.top = document.body.clientHeight * Math.random() + 'px';
   img.style.left = document.body.clientWidth * Math.random() + 'px';
   img.setAttribute("onclick", "destroy(chicken" + chickensSpawned + ")")
+  img.setAttribute("draggable","false")
 
   document.body.appendChild(img);
 }
