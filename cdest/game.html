@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Chicken Destroyer</title>
+  <link href="game.css" rel="stylesheet" type="text/css" id="cursorcss" />
+  <link rel="icon" href="icon.png">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <p id="toptxt" style="position:absolute; left: 3px; top: 3px;"></p>
+    <h1 style="position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);padding: 10px;" id="l">Uh Oh! Something went wrong.<br><span id="errtxt" style="color:red"><noscript>You have Javascript disabled.</noscript></span></h1>
+  </body>
+  <script src="script.js"></script>
+    <script>
+    errtxt.innerHTML = "The level you are on hasn't been created yet."
+    if (getLevel() == "reloadrequested") {
+      l.innerHTML = "Oh No! Chickens have taken over the world! It's your job to stop them. Tap chickens to destroy them. <br><img src='explanation.gif' style='cursor:default'><br><button onclick='location.reload();'>Start Game</button>"
+      setTimeout(function() {
+        localStorage.setItem("level","1")
+      }, 1000)
+    }
+
+    if (getLevel() == "1") {
+      l.innerHTML = "Level 1<br>Destroy the chicken coop guards<br>You have 20 seconds!";
+      timebtwn = "1700";
+      timelim = "20";
+      setTimeout(lstl,2000)
+    }
+    if (getLevel() == "2") {
+      l.innerHTML = "Level 2<br>Destroy the second wave of chicken coop guards<br>You have 25 seconds!";
+      timebtwn = "1400";
+      timelim = "25";
+      setTimeout(lstl,2000)
+    }
+    if (getLevel() == "3") {
+      l.innerHTML = "Level 3<br>Destroy the third wave of chicken coop guards<br>You have 15 seconds!";
+      timebtwn = "1300";
+      timelim = "15";
+      setTimeout(lstl,2000)
+    }
+    if (getLevel() == "4")  {
+      l.innerHTML = "Level 4<br>Destroy the guards walking the halls<br>Make sure to destroy them when they come!";
+      timebtwn = "2000";
+      desamnt = "15";
+      setTimeout(lsdm,2000)
+    }
+    if (getLevel() == "5") {
+      l.innerHTML = "BOSS LEVEL!<br>Destroy the door guards.<br>You have 20 seconds";
+      timelim = "20"
+      timebtwn = "700"
+      setTimeout(lsb,2000)
+    }
+    if (getLevel() == "6") {
+      l.innerHTML = "Your into the key room!<br>Oh no, there's more guards!";
+      setTimeout(function() {
+        l.innerHTML = "Level 6<br>Destroy the key guards<br>You have 5 seconds!"
+        timebtwn = "1100";
+        timelim = "5";
+        setTimeout(lstl,2000)
+      }, 2000)
+    }
+    if (getLevel() == "7")  {
+      l.innerHTML = "You got the secret key!<br>Now you have to leave the chicken coop!";
+      setTimeout(function() {
+      timebtwn = "1700";
+      desamnt = "10";
+      setTimeout(lsdm,2000)
+      l.innerHTML = "Level 7<br>Destroy the guards walking the halls<br>Make sure to destroy them when they come!";
+      }, 2000)
+    }
+    if (getLevel() == "8") {
+      l.innerHTML = "Level 8<br>Destroy the chicken coop guards<br>You have 30 seconds!";
+      timebtwn = "800";
+      timelim = "30";
+      setTimeout(lstl,2000)
+    }
+    if (getLevel() == "9")  {
+      l.innerHTML = "Level 9<br>Destroy the chickens that are roaming the path to the secret base<br>Make sure to destroy them when they come!";
+      timebtwn = "2000";
+      desamnt = "20";
+      setTimeout(lsdm,2000)
+    }
+    if (getLevel() == "10") {
+      l.innerHTML = "Oh No!<br>The chicken leaders have hired the infamous POULTRY BROTHERS to get you!";
+      setTimeout(function() {
+        l.innerHTML = "BOSS LEVEL!<br>Destroy the Poultry Brothers.<br>You have 30 seconds";
+        timelim = "30"
+        timebtwn = "500"
+        setTimeout(lsb,2000)
+      }, 2000)
+    }
+      if (getLevel() == "11") {
+      l.innerHTML = "Level 11<br>Destroy the poultry brother's army<br>You have 5 seconds!";
+      timebtwn = "800";
+      timelim = "5";
+      setTimeout(lstl,2000)
+    }
+    if (getLevel() == "12") {
+      l.innerHTML = "Level 12<br>Destroy the rest of the poultry brother's army<br>You have 10 seconds!";
+      timebtwn = "700";
+      timelim = "10";
+      setTimeout(lstl,2000)
+    }
+    if (getLevel() == "13") {
+      l.innerHTML = "Level 13<br>Destroy the guards that are guarding the Chicken Fortress<br>You have 15 seconds!";
+      timebtwn = "900";
+      timelim = "10";
+      setTimeout(lstl,2000)
+    }
+    if (getLevel() == "14")  {
+      l.innerHTML = "Level 14<br>Destroy the guards walking the halls<br>Make sure to destroy them when they come!";
+      timebtwn = "1600";
+      desamnt = "15";
+      setTimeout(lsdm,2000)
+    }
+    if (getLevel() == "15") {
+      l.innerHTML = "You unlock the throne room door with the key from the coop.<br>Now you have to defeat the chicken king!";
+      setTimeout(function() {
+        l.innerHTML = "BOSS LEVEL!<br>Destroy the Chicken King.<br>You have 30 seconds!";
+        timelim = "30"
+        timebtwn = "370"
+        setTimeout(lsb2,2000)
+      }, 2000)
+    }
+    </script>
+  <audio id="boom"><source src="laser.mp3"></audio>
+</html>
