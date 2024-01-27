@@ -25,7 +25,8 @@ html, body {
   background: white;
   height: 500px;
   margin: auto;
-  width: 80%;
+  border-radius:30px;
+  width: 700px;
 }
 
 .bg {
