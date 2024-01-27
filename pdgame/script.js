@@ -34,7 +34,7 @@ function touches(ob1, ob2, top1) {
   var rect2 = ob2.getBoundingClientRect();
   if (top1) {
     var btm = parseInt(top1) + 100; 
-    var newtop = top1;
+    var newtop = parseInt(top1);
   } else {
     var btm = topp + 100;
     var newtop = topp
@@ -150,7 +150,7 @@ function newtgt() {
 function trackA() {
   var elemlist = addin.querySelectorAll("div")
   Object.keys(elemlist).forEach(function (k) {
-    if (touches(phone,elemlist[k],elemlist[k].style.top)) {
+    if (touches(phone,elemlist[k],parseInt(elemlist[k].style.top))) {
       elemlist[k].innerHTML = '<img src="https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif" width="50" height="50"/>';
       console.log(elemlist[k])
       hits = hits + 1;
