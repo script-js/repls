@@ -116,5 +116,3 @@ function hit() {
   speed = speed - 3
   setTimeout(resetShip,1000)
 }
-
-startI()
