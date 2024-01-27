@@ -50,6 +50,16 @@ function shoot() {
     if (launchpos > window.screen.availWidth - 50) {
       resetSling()
     }
+    if (touches(phone,aid)) {
+    aid.innerHTML = '<img src="https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif" width="50" height="50"/>';
+    hits = hits + 1;
+    extraships = extraships - 1;
+    resetSling();
+    setTimeout(function() {aid.style.display = "none"},1000)
+  }
+  if (touches(phone,ship)) {
+      hit()
+    }
   },1)
 }
 
@@ -64,9 +74,7 @@ function tgtmove() {
   if (right == border) {
     lose()
   }
-  if (touches(phone,ship)) {
-      hit()
-    }
+  
 }
 
 function popup(text,bkgb) {
@@ -143,11 +151,5 @@ function newtgt() {
 
 function trackA(aidT) {
   var aid = document.getElementById(aidT)
-  if (touches(phone,aid)) {
-    aid.innerHTML = '<img src="https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif" width="50" height="50"/>';
-    hits = hits + 1;
-    extraships = extraships - 1;
-    resetSling();
-    setTimeout(function() {aid.style.display = "none"},1000)
-  }
+  
 }
