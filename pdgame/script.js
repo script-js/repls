@@ -75,8 +75,6 @@ function tgtmove() {
 function popup(text,bkgb) {
   popupcontent.innerHTML = text;
   myModal.style.display = "block";
-  popupH.style.width = "600px"
-  popupH.style.height = "200px"
   if(bkgb == true) {
     clearInterval(shipint)
     clearInterval(launchint)
@@ -85,6 +83,10 @@ function popup(text,bkgb) {
     topp = 10;
     right = 20;
   }
+  setTimeout(function() {
+    popupH.style.width = "600px"
+    popupH.style.height = "200px"
+  },500)
 }
       
 function lose() {
