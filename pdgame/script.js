@@ -88,6 +88,8 @@ function popup(text,bkgb) {
 function lose() {
   alert("You Lost!\r \rYour Score:" + hits)
   clearInterval(shipint)
+  speed = 50;
+  hits = 0;
   resetShip()
   resetSling()
 }
