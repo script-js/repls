@@ -100,12 +100,10 @@ function popup(text,bkgb) {
       
 function lose() {
   popup("You Lost!\r \rYour Score:" + hits,true)
-  window.onclick = popup
+  window.onclick = function() {popup();resetShip();resetSling();};
   clearInterval(shipint)
   speed = 50;
   hits = 0;
-  resetShip()
-  resetSling()
 }
 
 function startI() {
