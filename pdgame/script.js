@@ -94,7 +94,7 @@ function popup(close,text,bkgb) {
   setTimeout(function() {
     popupH.style.width = "600px"
     popupH.style.height = "200px"
-  },100)
+  },50)
   }
 }
       
