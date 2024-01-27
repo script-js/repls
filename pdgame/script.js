@@ -134,7 +134,7 @@ function hit() {
 }
 
 function newtgt() {
-  if (extraships > 5) {lose()} else {
+  if (extraships > 5) {lose();extraships = 1;} else {
   var toadd = document.createElement("div")
   toadd.setAttribute("class","alientgt")
   var lmin = (50 / 100) * window.screen.availWidth;
