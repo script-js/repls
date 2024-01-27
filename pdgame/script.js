@@ -93,8 +93,7 @@ function lose() {
 }
 
 function startI() {
-  var s1 = speed - hits
-  shipint = setInterval(tgtmove,s1)
+  shipint = setInterval(tgtmove,speed)
 }
 
 function resetShip() {
@@ -110,6 +109,7 @@ function hit() {
   resetSling()
   img.src = "https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif";
   hits = hits + 1;
+  speed = speed - 3
   setTimeout(resetShip,1000)
 }
 
