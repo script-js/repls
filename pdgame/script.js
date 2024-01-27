@@ -29,12 +29,13 @@ function resetSling() {
   window.onclick = function() {shoot()}
 }
 
-function touches(ob1, ob2) {
+function touches(ob1, ob2, csid) {
   var rect1 = ob1.getBoundingClientRect();
   var rect2 = ob2.getBoundingClientRect();
   var btm = rect1.top + rect1.height;
+  if (csid) {var newtop = csid} else {var newtop = topp}
   
-  if (rect1.right > rect2.left && btm > parseInt(slingshot.style.top) && topp < parseInt(slingshot.style.top)) {
+  if (rect1.right > rect2.left && btm > parseInt(slingshot.style.top) && newtop < parseInt(slingshot.style.top)) {
      return true;
   } else {
     return false
@@ -146,7 +147,7 @@ function trackA() {
   var elemlist = addin.querySelectorAll("div")
   Object.keys(elemlist).forEach(function (k) {
     console.log(elemlist[k])
-    if (touches(phone,elemlist[k])) {
+    if (touches(phone,elemlist[k],elemlist[k].style.top)) {
       elemlist[k].innerHTML = '<img src="https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif" width="50" height="50"/>';
       hits = hits + 1;
       extraships = extraships - 1;
