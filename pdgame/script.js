@@ -139,12 +139,13 @@ function newtgt() {
   toadd.setAttribute("id","ship" + extraships)
   toadd.innerHTML = '<img src="alien.png" width="50" height="50"/>';
   addin.appendChild(toadd)
-  setInterval("trackA(ship" + extraships + ")",1)
+  setInterval("trackA('ship" + extraships + "')",1)
   extraships = extraships + 1;
   }
 }
 
-function trackA(aid) {
+function trackA(aidT) {
+  var aid = document.getElementById(aidT)
   if (touches(phone,aid)) {
     aid.innerHTML = '<img src="https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif" width="50" height="50"/>';
     hits = hits + 1;
