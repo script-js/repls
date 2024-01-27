@@ -67,6 +67,9 @@ function tgtmove() {
   if (right == border) {
     lose()
   }
+  if (touches(phone,ship)) {
+      hit()
+    }
 }
 
 function popup(text,bkgb) {
