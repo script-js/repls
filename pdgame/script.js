@@ -34,7 +34,7 @@ function touches(ob1, ob2) {
   var rect2 = ob2.getBoundingClientRect();
   var btm = topp + 100;
   
-  if (rect1.right == rect2.left && btm > parseInt(slingshot.style.top) && topp < parseInt(slingshot.style.top)) {
+  if (rect1.right > rect2.left && btm > parseInt(slingshot.style.top) && topp < parseInt(slingshot.style.top)) {
      return true;
   } else {
     return false
@@ -105,8 +105,10 @@ function resetShip() {
 
 function hit() {
   clearInterval(shipint)
+  resetSling()
   img.src = "https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif";
   hits = hits + 1;
-  
   setTimeout(resetShip,1000)
 }
+
+startI()
