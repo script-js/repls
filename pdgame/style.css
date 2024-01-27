@@ -23,7 +23,8 @@ html, body {
 .modal-content {
   text-align: center;
   color: black;
-  background: white;
+  background: #827bc1;
+  border: 2px solid #ed3964;
   width: 2px;
   height: 2px;
   transition: ease 0.5s;
