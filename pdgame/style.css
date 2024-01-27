@@ -24,6 +24,7 @@ html, body {
   color: black;
   background: white;
   height: 500px;
+  width: 600px;
   margin: auto;
   border-radius:30px;
 }
