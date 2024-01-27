@@ -52,7 +52,7 @@ function shoot() {
     if (touches(phone,ship)) {
       hit()
     }
-  },0.01)
+  },0.1)
 }
 
 window.onclick = function() {shoot()}
