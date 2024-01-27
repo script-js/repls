@@ -74,7 +74,8 @@ function tgtmove() {
     }
 }
 
-function tgtmove2(sh1) {
+function tgtmove2(eid) {
+  var sh1 = document.getElementById(eid)
   var sh1right = parseInt(sh1.style.right) + 2;
   var sh1top = parseInt(sh1.style.top) + 1;
   sh1.style.right = sh1right + "px";
@@ -125,7 +126,7 @@ function lose() {
 
 function startI(extid) {
   if (extid) {
-    eval("var shipint" + extraships + " = setInterval(tgtmove2(" + extid + "),50)")
+    eval("var shipint" + extraships + " = setInterval(tgtmove2('" + extid + "'),50)")
   } else {
     shipint = setInterval(tgtmove,speed)
   }
@@ -146,6 +147,16 @@ function hit() {
   hits = hits + 1;
   speed = speed - 3
   setTimeout(resetShip,1000)
+}
+
+function hit2(eid) {
+  eval("clearInterval(shipint" + eid.replace("ship","") + ")")
+  var csimg = document.getElementById("img" + eid.replace("ship",""))
+  resetSling()
+  csimg.src = "https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif";
+  hits = hits + 1;
+  speed = speed - 3;
+  newship()
 }
 
 function newship() {
