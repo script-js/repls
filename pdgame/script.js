@@ -88,6 +88,7 @@ function popup(text,bkgb) {
     clearInterval(shipint)
     clearInterval(launchint)
     slingshot.style.display = "none"
+    addins.innerHTML = "";
     ship.style = "position:absolute; right:20px; top:10px; display:none;";
     topp = 10;
     right = 20;
