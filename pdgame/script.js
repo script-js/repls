@@ -99,7 +99,8 @@ function popup(text,bkgb) {
 }
       
 function lose() {
-  alert("You Lost!\r \rYour Score:" + hits)
+  popup("You Lost!\r \rYour Score:" + hits,true)
+  window.onclick = popup
   clearInterval(shipint)
   speed = 50;
   hits = 0;
