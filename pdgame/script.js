@@ -143,7 +143,7 @@ function newtgt() {
 }
 
 function trackA() {
-  var elemlist = addin.querySelector("div")
+  var elemlist = addin.querySelectorAll("div")
   Object.keys(elemlist).forEach(function (k) {
     if (touches(phone,k)) {
       k.innerHTML = '<img src="https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif" width="50" height="50"/>';
