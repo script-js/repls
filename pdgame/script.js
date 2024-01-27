@@ -145,7 +145,7 @@ function newtgt() {
 }
 
 function trackA(aid) {
-  if (touches(phone,aid) {
+  if (touches(phone,aid)) {
     aid.innerHTML = '<img src="https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif" width="50" height="50"/>';
     hits = hits + 1;
     extraships = extraships - 1;
