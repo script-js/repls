@@ -34,7 +34,7 @@ function touches(ob1, ob2) {
   var rect2 = ob2.getBoundingClientRect();
   var btm = topp + 100;
   
-  if (rect1.right > rect2.left && btm > parseInt(slingshot.style.top) && topp < parseInt(slingshot.style.top)) {
+  if (rect1.right == rect2.left && btm > parseInt(slingshot.style.top) && topp < parseInt(slingshot.style.top)) {
      return true;
   } else {
     return false
@@ -43,8 +43,9 @@ function touches(ob1, ob2) {
 
 function shoot() {
   shot = true;
+  window.onclick = null;
   launchint = setInterval(function() {
-    launchpos = launchpos + 2
+    launchpos = launchpos + 3
     phone.style.left = launchpos + "px"
     if (launchpos > window.screen.availWidth - 50) {
       resetSling()
@@ -52,7 +53,7 @@ function shoot() {
     if (touches(phone,ship)) {
       hit()
     }
-  },1)
+  },0.3)
 }
 
 window.onclick = function() {shoot()}
