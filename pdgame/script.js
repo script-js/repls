@@ -89,6 +89,7 @@ function lose() {
   alert("You Lost!\r \rYour Score:" + hits)
   clearInterval(shipint)
   resetShip()
+  resetSling()
 }
 
 function startI() {
