@@ -145,13 +145,13 @@ function newtgt() {
 function trackA() {
   var elemlist = addin.querySelectorAll("div")
   Object.keys(elemlist).forEach(function (k) {
-    console.log(k)
-    if (touches(phone,k)) {
-      k.innerHTML = '<img src="https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif" width="50" height="50"/>';
+    console.log(elemlist[k])
+    if (touches(phone,elemlist[k])) {
+      elemlist[k].innerHTML = '<img src="https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif" width="50" height="50"/>';
       hits = hits + 1;
       extraships = extraships - 1;
       resetSling();
-      setTimeout(function() {k.style.display = "none"},1000)
+      setTimeout(function() {elemlist[k].style.display = "none"},1000)
     }
   });
 }
