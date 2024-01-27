@@ -74,21 +74,6 @@ function tgtmove() {
     }
 }
 
-function tgtmove2(eid) {
-  var sh1 = document.getElementById(eid)
-  var sh1right = parseInt(sh1.style.right) + 2;
-  var sh1top = parseInt(sh1.style.top) + 1;
-  sh1.style.right = sh1right + "px";
-  sh1.style.top = sh1top + "px";
-  var border =  (50 / 100) * window.screen.availWidth;
-  if (sh1right == border) {
-    lose()
-  }
-  if (touches(phone,sh1)) {
-      hit2(eid)
-    }
-}
-
 function popup(text,bkgb) {
   if (!text) {
     popupH.style.width = "2px"
@@ -124,12 +109,8 @@ function lose() {
   hits = 0;
 }
 
-function startI(extid) {
-  if (extid) {
-    eval("var shipint" + extraships + " = setInterval(tgtmove2('" + extid + "'),50)")
-  } else {
-    shipint = setInterval(tgtmove,speed)
-  }
+function startI() {
+  shipint = setInterval(tgtmove,speed)
 }
 
 function resetShip() {
@@ -149,22 +130,16 @@ function hit() {
   setTimeout(resetShip,1000)
 }
 
-function hit2(eid) {
-  eval("clearInterval(shipint" + eid.replace("ship","") + ")")
-  var csimg = document.getElementById("img" + eid.replace("ship",""))
-  resetSling()
-  csimg.src = "https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif";
-  hits = hits + 1;
-  speed = speed - 3;
-  newship()
-}
-
-function newship() {
+function newtgt() {
+  if (extraships > 5) {lose()} else {
   var toadd = document.createElement("div")
-  toadd.setAttribute("class","shiptgt")
+  toadd.setAttribute("class","alientgt")
+  var randTop = document.body.clientHeight * Math.random() + 'px';
+  var randLeft = document.body.clientWidth * Math.random() + 'px';
+  toadd.style = "top:" + randTop + ";left:" + randLeft
   toadd.setAttribute("id","ship" + extraships)
-  toadd.innerHTML = '<img id="img' + extraships + '" src="ship.png" width="100px" height="100px"/>';
+  toadd.innerHTML = '<img src="alien.png"/>';
   addin.appendChild(toadd)
-  startI("ship" + extraships)
   extraships = extraships + 1;
+  }
 }
