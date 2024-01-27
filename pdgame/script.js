@@ -20,6 +20,7 @@ document.addEventListener('mousemove', function(e) {
 
 function resetSling() {
   clearInterval(launchint)
+  slingshot.style.display = "block"
   launchint2 = null;
   launchint3 = null;
   phone.style = "position:absolute;";
@@ -76,6 +77,7 @@ function popup(text,bkgb) {
   if (!text) {
     popupH.style.width = "2px"
     popupH.style.height = "2px"
+    
     setTimeout(function() {
       myModal.style.display = "none";
     },500)
@@ -99,7 +101,7 @@ function popup(text,bkgb) {
 }
       
 function lose() {
-  popup("You Lost!\r \rYour Score:" + hits,true)
+  popup("You Lost!<br>Your Score:" + hits,true)
   window.onclick = function() {popup();resetShip();resetSling();};
   clearInterval(shipint)
   speed = 50;
