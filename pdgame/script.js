@@ -6,6 +6,7 @@ var launchpos = 85;
 var shipint;
 var launchint;
 var extraships = 1;
+var lost;
 var shot = false
   
 document.addEventListener('mousemove', function(e) {
@@ -107,15 +108,18 @@ function popup(text,bkgb) {
 function lose() {
   popup("<h1>You Lost!</h1><h3>Your Score: " + hits + "</h3><p style='font-family:sans-serif'>Click anywhere to continue</p>",true)
   window.onclick = function() {popup();resetShip();resetSling();};
+  lost = true
   clearInterval(shipint)
   speed = 50;
   hits = 0;
 }
 
 function win() {
-  popup("<h1>You Win!</h1><p style='font-family:sans-serif'>Click anywhere to continue</p>",true);
-  clearInterval(shipint)
-  window.onclick = function() {location.reload();popup();}
+  if (!lost) {
+    popup("<h1>You Win!</h1><p style='font-family:sans-serif'>Click anywhere to continue</p>",true);
+    clearInterval(shipint)
+    window.onclick = function() {location.reload();popup();}
+  }
 }
 
 function startI() {
