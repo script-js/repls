@@ -32,12 +32,11 @@ function resetSling() {
 function touches(ob1, ob2, csid) {
   var rect1 = ob1.getBoundingClientRect();
   var rect2 = ob2.getBoundingClientRect();
-  var btm = rect1.bottom
+  var btm = rect1.top - 70
   if (csid) {var newtop = parseInt(csid)} else {var newtop = topp}
   
   if (rect1.right > rect2.left && btm > parseInt(slingshot.style.top) && newtop < parseInt(slingshot.style.top)) {
      return true;
-    console.log(btm)
   } else {
     return false
   }
