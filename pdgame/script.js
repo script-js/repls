@@ -72,7 +72,14 @@ function tgtmove() {
     }
 }
 
-function popup(text,bkgb) {
+function popup(close,text,bkgb) {
+  if (close) {
+    popupH.style.width = "2px"
+    popupH.style.height = "2px"
+    setTimeout(function() {
+      myModal.style.display = "none";
+    },500)
+  } else {
   popupcontent.innerHTML = text;
   myModal.style.display = "block";
   if(bkgb == true) {
@@ -83,10 +90,12 @@ function popup(text,bkgb) {
     topp = 10;
     right = 20;
   }
+  
   setTimeout(function() {
     popupH.style.width = "600px"
     popupH.style.height = "200px"
-  },500)
+  },100)
+  }
 }
       
 function lose() {
