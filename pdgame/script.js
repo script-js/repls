@@ -32,7 +32,7 @@ function resetSling() {
 function touches(ob1, ob2, csid) {
   var rect1 = ob1.getBoundingClientRect();
   var rect2 = ob2.getBoundingClientRect();
-  var btm = rect1.top + rect1.height;
+  var btm = rect1.bottom
   console.log(btm)
   if (csid) {var newtop = parseInt(csid)} else {var newtop = topp}
   
