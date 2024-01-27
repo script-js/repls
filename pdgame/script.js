@@ -88,7 +88,7 @@ function popup(text,bkgb) {
     clearInterval(shipint)
     clearInterval(launchint)
     slingshot.style.display = "none"
-    addins.innerHTML = "";
+    addin.innerHTML = "";
     ship.style = "position:absolute; right:20px; top:10px; display:none;";
     topp = 10;
     right = 20;
@@ -103,7 +103,7 @@ function popup(text,bkgb) {
 }
       
 function lose() {
-  popup("<h1>You Lost!</h1><h3>Your Score: " + hits + "</h3>",true)
+  popup("<h1>You Lost!</h1><h3>Your Score: " + hits + "</h3><p style='font-family:sans-serif'>Click anywhere to continue</p>",true)
   window.onclick = function() {popup();resetShip();resetSling();};
   clearInterval(shipint)
   speed = 50;
