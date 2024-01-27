@@ -137,8 +137,10 @@ function newtgt() {
   if (extraships > 5) {lose()} else {
   var toadd = document.createElement("div")
   toadd.setAttribute("class","alientgt")
+  var lmin = (50 / 100) * window.screen.availWidth;
+  var lmax = document.body.clientWidth - 200;
   var randTop = (document.body.clientHeight - 200) * Math.random() + 'px';
-  var randLeft = (document.body.clientWidth - 200) * Math.random() + 'px';
+  var randLeft = Math.random() * (lmax - lmin) + lmin + 'px';
   toadd.style = "top:" + randTop + ";left:" + randLeft
   toadd.setAttribute("id","ship" + extraships)
   toadd.innerHTML = '<img src="alien.png" width="50" height="50"/>';
