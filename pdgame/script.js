@@ -82,7 +82,6 @@ function popup(text,bkgb) {
       myModal.style.display = "none";
     },500)
   } else {
-  popupcontent.innerHTML = text;
   myModal.style.display = "block";
   if(bkgb == true) {
     clearInterval(shipint)
@@ -97,6 +96,7 @@ function popup(text,bkgb) {
     popupH.style.width = "600px"
     popupH.style.height = "200px"
   },50)
+    setTimeout(function() {popupcontent.innerHTML = text;},500)
   }
 }
       
