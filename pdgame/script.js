@@ -45,7 +45,7 @@ function shoot() {
   shot = true;
   window.onclick = null;
   launchint = setInterval(function() {
-    launchpos = launchpos + 3
+    launchpos = launchpos + 7
     phone.style.left = launchpos + "px"
     if (launchpos > window.screen.availWidth - 50) {
       resetSling()
@@ -53,7 +53,7 @@ function shoot() {
     if (touches(phone,ship)) {
       hit()
     }
-  },0.3)
+  },1)
 }
 
 window.onclick = function() {shoot()}
