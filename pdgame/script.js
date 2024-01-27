@@ -20,8 +20,6 @@ document.addEventListener('mousemove', function(e) {
 
 function resetSling() {
   clearInterval(launchint)
-  clearInterval(launchint2)
-  clearInterval(launchint3)
   launchint2 = null;
   launchint3 = null;
   phone.style = "position:absolute;";
@@ -54,7 +52,7 @@ function shoot() {
     if (touches(phone,ship)) {
       hit()
     }
-  },1)
+  },0.01)
 }
 
 window.onclick = function() {shoot()}
