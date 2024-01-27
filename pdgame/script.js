@@ -75,6 +75,7 @@ function tgtmove() {
 }
 
 function tgtmove2(eid) {
+  console.log(eid)
   var sh1 = document.getElementById(eid)
   var sh1right = parseInt(sh1.style.right) + 2;
   var sh1top = parseInt(sh1.style.top) + 1;
