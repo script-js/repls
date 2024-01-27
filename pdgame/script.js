@@ -77,7 +77,7 @@ function popup(text,bkgb) {
   if (!text) {
     popupH.style.width = "2px"
     popupH.style.height = "2px"
-    
+    popupcontent.innerHTML = "";
     setTimeout(function() {
       myModal.style.display = "none";
     },500)
@@ -101,7 +101,7 @@ function popup(text,bkgb) {
 }
       
 function lose() {
-  popup("You Lost!<br>Your Score:" + hits,true)
+  popup("<h1>You Lost!</h1><h3>Your Score: " + hits + "</h3>",true)
   window.onclick = function() {popup();resetShip();resetSling();};
   clearInterval(shipint)
   speed = 50;
