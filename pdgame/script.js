@@ -1,7 +1,7 @@
 var topp = 10
 var right = 20;
 var hits = 0;
-var speed = 30;
+var speed = 50;
 var launchpos = 85;
 var shipint;
 var launchint;
@@ -93,7 +93,8 @@ function lose() {
 }
 
 function startI() {
-  shipint = setInterval(tgtmove,speed)
+  var s1 = speed - hits
+  shipint = setInterval(tgtmove,s1)
 }
 
 function resetShip() {
