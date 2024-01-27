@@ -112,6 +112,12 @@ function lose() {
   hits = 0;
 }
 
+function win() {
+  popup("<h1>You Win!</h1><p style='font-family:sans-serif'>Click anywhere to continue</p>",true);
+  clearInterval(shipint)
+  window.onclick = function() {location.reload()}
+}
+
 function startI() {
   shipint = setInterval(tgtmove,speed)
 }
@@ -129,7 +135,14 @@ function hit() {
   resetSling()
   img.src = "https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif";
   hits = hits + 1;
-  speed = speed - 3
+  if (speed > 0) {
+    speed = speed - 3;
+  } else {
+    newtgt()
+    if (extraships < 2) {
+      setTimeout(win,15000)
+    }
+  }
   setTimeout(resetShip,1000)
 }
 
