@@ -72,8 +72,8 @@ function tgtmove() {
     }
 }
 
-function popup(close,text,bkgb) {
-  if (close) {
+function popup(text,bkgb) {
+  if (!text) {
     popupH.style.width = "2px"
     popupH.style.height = "2px"
     setTimeout(function() {
