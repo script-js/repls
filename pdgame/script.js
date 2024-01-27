@@ -126,9 +126,10 @@ function lose() {
 }
 
 function startI(extid) {
-  shipint = setInterval(tgtmove,speed)
   if (extid) {
     eval("var shipint" + extraships + " = setInterval(tgtmove2(" + extid + "),50)")
+  } else {
+    shipint = setInterval(tgtmove,speed)
   }
 }
 
