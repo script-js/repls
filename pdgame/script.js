@@ -29,12 +29,17 @@ function resetSling() {
   window.onclick = function() {shoot()}
 }
 
-function touches(ob1, ob2) {
+function touches(ob1, ob2, top1) {
   var rect1 = ob1.getBoundingClientRect();
   var rect2 = ob2.getBoundingClientRect();
-  var btm = topp + 100;
-  
-  if (rect1.right > rect2.left && btm > parseInt(slingshot.style.top) && topp < parseInt(slingshot.style.top)) {
+  if (top1) {
+    var btm = parseInt(top1) + 100; 
+    var newtop = top1;
+  } else {
+    var btm = topp + 100;
+    var newtop = topp
+  }
+  if (rect1.right > rect2.left && btm > parseInt(slingshot.style.top) && newtop < parseInt(slingshot.style.top)) {
      return true;
   } else {
     return false
