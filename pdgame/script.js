@@ -133,7 +133,7 @@ function newtgt() {
   var toadd = document.createElement("div")
   toadd.setAttribute("class","alientgt")
   var randTop = (document.body.clientHeight - 200) * Math.random() + 'px';
-  var randLeft = (document.body.clientWidth - 200) * Math.random() + 'px';
+  var randLeft = (document.body.clientWidth - 200) * Math.rando m() + 'px';
   toadd.style = "top:" + randTop + ";left:" + randLeft
   toadd.setAttribute("id","ship" + extraships)
   toadd.innerHTML = '<img src="alien.png" width="50" height="50"/>';
@@ -145,6 +145,7 @@ function newtgt() {
 function trackA() {
   var elemlist = addin.querySelectorAll("div")
   Object.keys(elemlist).forEach(function (k) {
+    console.log(k)
     if (touches(phone,k)) {
       k.innerHTML = '<img src="https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif" width="50" height="50"/>';
       hits = hits + 1;
