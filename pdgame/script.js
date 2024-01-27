@@ -5,8 +5,6 @@ var speed = 50;
 var launchpos = 85;
 var shipint;
 var launchint;
-var launchint2;
-var launchint3;
 var extraships = 1;
 var shot = false
   
@@ -141,6 +139,17 @@ function newtgt() {
   toadd.setAttribute("id","ship" + extraships)
   toadd.innerHTML = '<img src="alien.png" width="50" height="50"/>';
   addin.appendChild(toadd)
+  setInterval("trackA(ship" + extraships + ")",1)
   extraships = extraships + 1;
+  }
+}
+
+function trackA(aid) {
+  if (touches(phone,aid) {
+    aid.innerHTML = '<img src="https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif" width="50" height="50"/>';
+    hits = hits + 1;
+    extraships = extraships - 1;
+    resetSling();
+    setTimeout(function() {aid.style.display = "none"},1000)
   }
 }
