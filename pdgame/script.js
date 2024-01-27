@@ -140,7 +140,7 @@ function hit() {
   } else {
     newtgt()
     if (extraships == 2) {
-      setTimeout(win,20000)
+      setTimeout(win,30000)
     }
   }
   setTimeout(resetShip,1000)
