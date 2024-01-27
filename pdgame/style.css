@@ -54,6 +54,12 @@ html, body {
   top:10px
 }
 
+.alientgt {
+  position:absolute; 
+  width: 30px;
+  height: 30px;
+}
+
 #popupcontent {
   font-family: "Nabla", system-ui;
   font-optical-sizing: auto;
