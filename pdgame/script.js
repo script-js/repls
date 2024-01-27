@@ -139,7 +139,7 @@ function hit() {
     speed = speed - 3;
   } else {
     newtgt()
-    if (extraships == 1) {
+    if (extraships == 2) {
       setTimeout(win,10000)
     }
   }
