@@ -153,7 +153,7 @@ function trackA() {
       hits = hits + 1;
       extraships = extraships - 1;
       resetSling();
-      setTimeout(function() {elemlist[k].style.display = "none"},1000)
+      setTimeout(function() {elemlist[k].remove()},1000)
     }
   });
 }
