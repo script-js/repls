@@ -50,16 +50,10 @@ function shoot() {
     if (launchpos > window.screen.availWidth - 50) {
       resetSling()
     }
-    if (touches(phone,aid)) {
-    aid.innerHTML = '<img src="https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif" width="50" height="50"/>';
-    hits = hits + 1;
-    extraships = extraships - 1;
-    resetSling();
-    setTimeout(function() {aid.style.display = "none"},1000)
-  }
   if (touches(phone,ship)) {
       hit()
     }
+    trackA()
   },1)
 }
 
@@ -144,12 +138,19 @@ function newtgt() {
   toadd.setAttribute("id","ship" + extraships)
   toadd.innerHTML = '<img src="alien.png" width="50" height="50"/>';
   addin.appendChild(toadd)
-  setInterval("trackA('ship" + extraships + "')",1)
   extraships = extraships + 1;
   }
 }
 
-function trackA(aidT) {
-  var aid = document.getElementById(aidT)
-  
+function trackA() {
+  var elemlist = addin.querySelector("div")
+  Object.keys(elemlist).forEach(function (k) {
+    if (touches(phone,k)) {
+      k.innerHTML = '<img src="https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif" width="50" height="50"/>';
+      hits = hits + 1;
+      extraships = extraships - 1;
+      resetSling();
+      setTimeout(function() {k.style.display = "none"},1000)
+    }
+  });
 }
