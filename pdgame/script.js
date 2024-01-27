@@ -7,6 +7,7 @@ var shipint;
 var launchint;
 var launchint2;
 var launchint3;
+var extraships = 1;
 var shot = false
   
 document.addEventListener('mousemove', function(e) {
@@ -73,6 +74,21 @@ function tgtmove() {
     }
 }
 
+function tgtmove2(eid) {
+  var sh1 = document.getElementById(eid)
+  var sh1right = parseInt(sh1.style.right) + 2;
+  var sh1top = parseInt(sh1.style.top) + 1;
+  sh1.style.right = sh1right + "px";
+  sh1.style.top = sh1top + "px";
+  var border =  (50 / 100) * window.screen.availWidth;
+  if (sh1right == border) {
+    lose()
+  }
+  if (touches(phone,sh1)) {
+      hit2(eid)
+    }
+}
+
 function popup(text,bkgb) {
   if (!text) {
     popupH.style.width = "2px"
@@ -108,8 +124,11 @@ function lose() {
   hits = 0;
 }
 
-function startI() {
+function startI(extid) {
   shipint = setInterval(tgtmove,speed)
+  if (extid) {
+    eval("var shipint" + extraships + " = setInterval(tgtmove2(" + extid + "),50)")
+  }
 }
 
 function resetShip() {
@@ -127,4 +146,14 @@ function hit() {
   hits = hits + 1;
   speed = speed - 3
   setTimeout(resetShip,1000)
+}
+
+function newship() {
+  var toadd = document.createElement("div")
+  toadd.setAttribute("class","shiptgt")
+  toadd.setAttribute("id","ship" + extraships)
+  toadd.innerHTML = '<img id="img' + extraships + '" src="ship.png" width="100px" height="100px"/>';
+  addin.appendChild(toadd)
+  startI("ship" + extraships)
+  extraships = extraships + 1;
 }
