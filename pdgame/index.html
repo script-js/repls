@@ -4,12 +4,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title></title>
+  <title>Phone Defender</title>
+  <link rel="icon" href="ship.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
   <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
+<style>
+  body {
+      background: url('ship.png')
+    }
 
+.nabla-ff1 {
+  font-family: "Nabla", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "EDPT" 100,
+    "EHLT" 12;
+}
+</style>
 <body>
-  <script>location.replace("game.html")</script>
+  <p style="color:red;"><noscript><strong style="color:blue">i</strong>&nbsp;&nbsp;You have JavaScript disabled</noscript></p>
+  <div style="position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);padding: 10px;">
+<h1 class="nabla-ff1"></h1>
+<a href="play"><button style="width:100%">Start</button></a>
+</div>
 </body>
 
 </html>
