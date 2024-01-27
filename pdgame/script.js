@@ -50,9 +50,6 @@ function shoot() {
     if (launchpos > window.screen.availWidth - 50) {
       resetSling()
     }
-    if (touches(phone,ship)) {
-      hit()
-    }
   },1)
 }
 
