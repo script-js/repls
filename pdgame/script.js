@@ -115,7 +115,7 @@ function lose() {
 function win() {
   popup("<h1>You Win!</h1><p style='font-family:sans-serif'>Click anywhere to continue</p>",true);
   clearInterval(shipint)
-  window.onclick = function() {location.reload()}
+  window.onclick = function() {location.reload();popup();}
 }
 
 function startI() {
@@ -139,8 +139,8 @@ function hit() {
     speed = speed - 3;
   } else {
     newtgt()
-    if (extraships < 2) {
-      setTimeout(win,15000)
+    if (extraships == 1) {
+      setTimeout(win,10000)
     }
   }
   setTimeout(resetShip,1000)
