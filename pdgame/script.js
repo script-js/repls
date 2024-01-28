@@ -211,3 +211,8 @@ function note7run() {
   powerup = "note7";
   phone.src = "phones/note7.png"
 }
+
+function pause() {
+  popup("<h1>Game Paused</h1><p style='font-family:sans-serif'>Click anywhere to continue</p>")
+  window.onclick = startI;
+} 
