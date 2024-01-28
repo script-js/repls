@@ -195,4 +195,5 @@ function note7() {
       setTimeout(function() {elemlist[k].remove()},1000)
   });
   },1500)
+  setTimeout(function() {phone.src = "phones/basic_phone.png";},2000)
 }
