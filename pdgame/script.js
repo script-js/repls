@@ -219,7 +219,7 @@ function pause() {
   window.onclick = function() {startI();popup()};
 } 
 
-textarea.addEventListener("keyup", (e) => {
+window.addEventListener("keyup", (e) => {
   if (e.key === "Escape") {
     pause()
   }
