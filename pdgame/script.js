@@ -182,7 +182,7 @@ function trackA() {
 
 function note7() {
   phone.style = "width:200px;";
-  setTimeout(function() {phone.src = "https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif";},1000)
+  phone.src = "https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif";
   setTimeout(function() {
   hit()
   var elemlist = addin.querySelectorAll("div")
