@@ -216,6 +216,6 @@ function note7run() {
 function pause() {
   clearInterval(shipint)
   popup("<h1>Game Paused</h1><p style='font-family:sans-serif'>Click anywhere to continue</p>")
-  window.onclick = function() {startI()popup()};
+  window.onclick = function() {startI();popup()};
   clearInterval(launchint)
 } 
