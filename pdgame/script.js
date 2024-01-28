@@ -214,5 +214,5 @@ function note7run() {
 
 function pause() {
   popup("<h1>Game Paused</h1><p style='font-family:sans-serif'>Click anywhere to continue</p>")
-  window.onclick = startI;
+  window.onclick = function() {startI(); window.onclick = function() {shoot()}};
 } 
