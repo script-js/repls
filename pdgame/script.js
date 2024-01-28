@@ -200,7 +200,11 @@ function note7() {
       setTimeout(function() {elemlist[k].remove()},1000)
   });
   },1500)
-  setTimeout(function() {pn7.src = "phones/note7.png";pn7.style.display = "none";phone.style.display = "inline"},2000);
+  setTimeout(function() {pn7.src = "phones/note7.png";pn7.style.display = "none";phone.style.display = "inline"resetPowerup()},2000);
+}
+function resetPowerup() {
+  phone.src = "phones/basic_phone.png"
+  powerup = "";
 }
 
 function note7run() {
