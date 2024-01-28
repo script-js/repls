@@ -187,8 +187,8 @@ function trackA() {
 
 function note7() {
   pn7.style.display = "block";
-  setTimeout(function() {pn7.src = "https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif"},1000)
   setTimeout(function() {
+  pn7.src = "https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif"
   hit()
   var elemlist = addin.querySelectorAll("div")
   Object.keys(elemlist).forEach(function (k) {
