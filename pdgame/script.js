@@ -195,5 +195,5 @@ function note7() {
       setTimeout(function() {elemlist[k].remove()},1000)
   });
   },1500)
-  setTimeout(function() {pn7.src = "phones/note7.png";},2000)
+  setTimeout(function() {pn7.src = "phones/note7.png";pn7.style.display = "none";},2000)
 }
