@@ -228,7 +228,7 @@ window.addEventListener("keyup", (e) => {
 });
 
 if (!localStorage.getItem("tutorial")) {
-  localStorage.setItem("tutorial","done")
   popup("<h1>How to Play</h1><ol style='font-family:sans-serif'><li>Move your cursor to control the slingshot</li><li>Press escape to pause</li><li>Click to shoot your phone</li></ol>")
   window.onclick = function() {popup();startI()}
+  localStorage.setItem("tutorial","done")
 }
