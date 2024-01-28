@@ -77,6 +77,7 @@ function tgtmove() {
   }
   if (powerup == "note7" && parseInt(phone.style.left) > ((50 / 100) * window.screen.availWidth)) {
     note7()
+    phone.style.display = "block"
   }
 }
 
@@ -198,7 +199,7 @@ function note7() {
       setTimeout(function() {elemlist[k].remove()},1000)
   });
   },1500)
-  setTimeout(function() {pn7.src = "phones/note7.png";pn7.style.display = "none";},2000)
+  setTimeout(function() {pn7.src = "phones/note7.png";pn7.style.display = "none";resetSling();phone.style.display = "block"},2000);
 }
 
 function note7run() {
