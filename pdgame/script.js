@@ -181,8 +181,8 @@ function trackA() {
 }
 
 function note7() {
-  phone.style = "width:200px;";
-  phone.src = "https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif";
+  pn7.style.display = "block";
+  setTimeout(function() {pn7.src = "https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif"},1000)
   setTimeout(function() {
   hit()
   var elemlist = addin.querySelectorAll("div")
@@ -195,5 +195,5 @@ function note7() {
       setTimeout(function() {elemlist[k].remove()},1000)
   });
   },1500)
-  setTimeout(function() {phone.src = "phones/basic_phone.png";},2000)
+  setTimeout(function() {pn7.src = "phones/note7.png";},2000)
 }
