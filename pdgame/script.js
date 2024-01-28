@@ -129,6 +129,7 @@ function win() {
 
 function startI() {
   shipint = setInterval(tgtmove,speed)
+  window.onclick = function() {shoot()}
 }
 
 function resetShip() {
@@ -213,6 +214,8 @@ function note7run() {
 }
 
 function pause() {
+  clearInterval(shipint)
   popup("<h1>Game Paused</h1><p style='font-family:sans-serif'>Click anywhere to continue</p>")
-  window.onclick = function() {startI(); window.onclick = function() {shoot()}};
+  window.onclick = function() {startI()};
+  clearInterval(launchint)
 } 
