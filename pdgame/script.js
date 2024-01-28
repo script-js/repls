@@ -179,3 +179,17 @@ function trackA() {
     }
   });
 }
+
+function note7() {
+  phone.style.width = "200px;";
+  hit()
+  var elemlist = addin.querySelectorAll("div")
+  Object.keys(elemlist).forEach(function (k) {
+      elemlist[k].innerHTML = '<img src="https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif" width="50" height="50"/>';
+      console.log(elemlist[k])
+      hits = hits + 1;
+      extraships = extraships - 1;
+      resetSling();
+      setTimeout(function() {elemlist[k].remove()},1000)
+  });
+}
