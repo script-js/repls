@@ -217,5 +217,10 @@ function pause() {
   clearInterval(shipint)
   popup("<h1>Game Paused</h1><p style='font-family:sans-serif'>Click anywhere to continue</p>")
   window.onclick = function() {startI();popup()};
-  clearInterval(launchint)
 } 
+
+textarea.addEventListener("keyup", (e) => {
+  if (e.key === "Escape") {
+    pause()
+  }
+});
