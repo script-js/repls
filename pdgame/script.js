@@ -4,6 +4,7 @@ var hits = 0;
 var speed = 50;
 var launchpos = 85;
 var shipint;
+var powerup;
 var launchint;
 var extraships = 1;
 var lost;
@@ -74,7 +75,9 @@ function tgtmove() {
   if (right == border) {
     lose()
   }
-  
+  if (powerup == "note7" && parseInt(phone.style.left) > ((50 / 100) * window.screen.availWidth)) {
+    note7()
+  }
 }
 
 function popup(text,bkgb) {
@@ -196,4 +199,9 @@ function note7() {
   });
   },1500)
   setTimeout(function() {pn7.src = "phones/note7.png";pn7.style.display = "none";},2000)
+}
+
+function note7run() {
+  powerup = "note7";
+  phone.src = "phones/note7.png"
 }
