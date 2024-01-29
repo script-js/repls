@@ -6,6 +6,7 @@ var launchpos = 85;
 var shipint;
 var powerup;
 var launchint;
+var startNum = 3;
 var extraships = 1;
 var lost;
 var shot = false
@@ -221,6 +222,19 @@ function pause() {
   
 } 
 
+function countdown() {
+  popup("<h1>Get Ready!</h1><p id='count'>3</p>")
+  launchint = setInterval(function() {
+    if (startNum > 1) {
+      startNum = startNum - 1;
+      count.innerText = startNum;
+  } else {
+    popup()
+    startI()
+  }
+  },1000)
+}
+
 window.addEventListener("keyup", (e) => {
   if (e.key === "Escape") {
     pause()
@@ -231,4 +245,7 @@ if (!localStorage.getItem("tutorial")) {
   popup("<h1>How to Play</h1><ol style='font-family:sans-serif'><li>Move your cursor to control the slingshot</li><li>Press escape to pause</li><li>Click to shoot your phone</li></ol>")
   window.onclick = function() {popup();startI()}
   localStorage.setItem("tutorial","done")
+  countdown()
+} else {
+  countdown()
 }
