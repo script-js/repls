@@ -231,6 +231,7 @@ function countdown() {
   } else {
     popup()
     startI()
+    clearInterval(launchint)
   }
   },1000)
 }
