@@ -9,7 +9,8 @@ var launchint;
 var startNum = 3;
 var extraships = 1;
 var lost;
-var shot = false
+var shot = false;
+var level = parseInt(localStorage.getItem("pdlevel"));
   
 document.addEventListener('mousemove', function(e) {
   if (shot == false) {
@@ -125,6 +126,7 @@ function win() {
     popup("<h1>You Win!</h1><p style='font-family:sans-serif'>Click anywhere to continue</p>",true);
     clearInterval(shipint)
     window.onclick = function() {location.reload();popup();}
+    levelUp()
   }
 }
 
@@ -146,13 +148,17 @@ function hit() {
   resetSling()
   img.src = "https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif";
   hits = hits + 1;
+  if (level > 2) {
   if (speed > 0) {
     speed = speed - 3;
   } else {
-    newtgt()
-    if (extraships == 2) {
-      setTimeout(win,30000)
+      newtgt()
+      if (extraships == 2) {
+        setTimeout(win,30000)
+      }
     }
+  } else {
+    if (speed < 0) {win()}
   }
   setTimeout(resetShip,1000)
 }
@@ -244,9 +250,13 @@ window.addEventListener("keyup", (e) => {
 
 if (!localStorage.getItem("tutorial")) {
   popup("<h1>How to Play</h1><ol style='font-family:sans-serif'><li>Move your cursor to control the slingshot</li><li>Press escape to pause</li><li>Click to shoot your phone</li></ol>")
-  window.onclick = function() {popup();startI()}
+  window.onclick = function() {popup();location.reload();}
   localStorage.setItem("tutorial","done")
-  countdown()
+  localStorage.setItem("pdlevel","1")
 } else {
   countdown()
+}
+
+function levelUp() {
+  localStorage.setItem("pdlevel",level + 1)
 }
