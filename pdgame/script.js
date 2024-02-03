@@ -158,7 +158,7 @@ function hit() {
       }
     }
   } else {
-    if (speed < 0) {win()}
+    if (speed < 0) {win()} else {speed = speed - 3;}
   }
   setTimeout(resetShip,1000)
 }
