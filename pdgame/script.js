@@ -157,10 +157,10 @@ function hit() {
         setTimeout(win,30000)
       }
     }
+    setTimeout(resetShip,1000)
   } else {
-    if (speed < 0) {win()} else {speed = speed - 3;}
+    if (speed < 0) {win()} else {speed = speed - 3;setTimeout(resetShip,1000)}
   }
-  setTimeout(resetShip,1000)
 }
 
 function newtgt() {
