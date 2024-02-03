@@ -149,6 +149,7 @@ function hit() {
   img.src = "https://i.gifer.com/origin/d7/d7ac4f38b77abe73165d85edf2cbdb9e_w200.gif";
   hits = hits + 1;
   if (level > 2) {
+    setTimeout(resetShip,1000)
   if (speed > 0) {
     speed = speed - 3;
   } else {
@@ -157,7 +158,6 @@ function hit() {
         setTimeout(win,30000)
       }
     }
-    setTimeout(resetShip,1000)
   } else {
     if (speed < 0) {win()} else {speed = speed - 3;setTimeout(resetShip,1000)}
   }
