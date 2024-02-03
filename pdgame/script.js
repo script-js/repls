@@ -5,6 +5,7 @@ var speed = 50;
 var launchpos = 85;
 var shipint;
 var powerup;
+var ahit = 0;
 var launchint;
 var startNum = 3;
 var extraships = 1;
@@ -187,6 +188,12 @@ function trackA() {
       console.log(elemlist[k])
       hits = hits + 1;
       extraships = extraships - 1;
+      ahit = ahit + 1;
+      if (level > 5 && ahit == 3) {
+        popup("<h1>Powerup Unlocked!</h1><img src='phones/note7.png' width='100'><p>Samsung Galaxy Note 7</p><p style='font-family:sans-serif'>Click anywhere to continue</p>",true)
+        window.onclick = function() {popup();startI();}
+        note7run()
+      }
       resetSling();
       setTimeout(function() {elemlist[k].remove()},1000)
     }
@@ -248,7 +255,7 @@ window.addEventListener("keyup", (e) => {
   }
 });
 
-if (!localStorage.getItem("tutorial")) {
+if (!localStorage.getItem("tutorial") && !localStorage.getItem("level")) {
   popup("<h1>How to Play</h1><ol style='font-family:sans-serif'><li>Move your cursor to control the slingshot</li><li>Press escape to pause</li><li>Click to shoot your phone</li></ol>")
   window.onclick = function() {popup();location.reload();}
   localStorage.setItem("tutorial","done")
