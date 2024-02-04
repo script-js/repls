@@ -107,8 +107,14 @@ function popup(text,bkgb) {
     ship.style = "position:absolute; right:20px; top:10px; display:none;";
     topp = 10;
     right = 20;
+  } else if (bkgb == "powerup") {
+    clearInterval(shipint)
+    clearInterval(launchint)
+    slingshot.style.display = "none"
+    ship.style = "position:absolute; right:20px; top:10px; display:none;";
+    topp = 10;
+    right = 20;
   }
-  
   setTimeout(function() {
     popupH.style.width = "600px"
     popupH.style.height = "auto"
@@ -195,7 +201,7 @@ function trackA() {
       ahit = ahit + 1;
       if (level > 5 && ahit > 2) {
         if (ahit == 3) {
-          popup("<h1>Powerup Unlocked!</h1><img src='phones/note7.png' width='100'><p>Samsung Galaxy Note 7</p><p style='font-family:sans-serif'>Click anywhere to continue</p>",true)
+          popup("<h1>Powerup Unlocked!</h1><img src='phones/note7.png' width='100'><p>Samsung Galaxy Note 7</p><p style='font-family:sans-serif'>Click anywhere to continue</p>","powerup")
           window.onclick = function() {popup();startI();}
         }
         note7run()
