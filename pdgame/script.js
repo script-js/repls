@@ -97,6 +97,7 @@ function popup(text,bkgb) {
       myModal.style.display = "none";
     },500)
   } else {
+  popupcontent.innerHTML = text;
   myModal.style.display = "block";
   if (bkgb == true) {
     clearInterval(shipint)
