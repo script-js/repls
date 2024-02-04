@@ -189,12 +189,15 @@ function trackA() {
       hits = hits + 1;
       extraships = extraships - 1;
       ahit = ahit + 1;
-      if (level > 5 && ahit > 3) {
-        popup("<h1>Powerup Unlocked!</h1><img src='phones/note7.png' width='100'><p>Samsung Galaxy Note 7</p><p style='font-family:sans-serif'>Click anywhere to continue</p>",true)
-        window.onclick = function() {popup();startI();}
+      if (level > 5 && ahit > 2) {
+        if (ahit == 3) {
+          popup("<h1>Powerup Unlocked!</h1><img src='phones/note7.png' width='100'><p>Samsung Galaxy Note 7</p><p style='font-family:sans-serif'>Click anywhere to continue</p>",true)
+          window.onclick = function() {popup();startI();}
+        }
         note7run()
+      } else {
+        resetSling();
       }
-      resetSling();
       setTimeout(function() {elemlist[k].remove()},1000)
     }
   });
