@@ -98,7 +98,7 @@ function popup(text,bkgb) {
     },500)
   } else {
   myModal.style.display = "block";
-  if(bkgb == true) {
+  if (bkgb == true) {
     clearInterval(shipint)
     clearInterval(launchint)
     slingshot.style.display = "none"
@@ -110,7 +110,7 @@ function popup(text,bkgb) {
   
   setTimeout(function() {
     popupH.style.width = "600px"
-    popupH.style.height = "200px"
+    popupH.style.height = "inherit"
   },50)
     setTimeout(function() {popupcontent.innerHTML = text;},500)
   }
@@ -229,7 +229,9 @@ function resetPowerup() {
 }
 
 function note7run() {
-  powerup = "note7";
+  setTimeout(function() {
+    powerup = "note7";
+  },100)
   phone.src = "phones/note7.png"
 }
 
