@@ -203,8 +203,11 @@ function trackA() {
         if (ahit == 3) {
           popup("<h1>Powerup Unlocked!</h1><img src='phones/note7.png' width='100'><p>Samsung Galaxy Note 7</p><p style='font-family:sans-serif'>Click anywhere to continue</p>","powerup")
           window.onclick = function() {popup();startI();}
+          note7run()
+        } else {
+          resetSling()
+          setTimeout(note7run,10)
         }
-        note7run()
       } else {
         resetSling();
       }
