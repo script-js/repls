@@ -110,7 +110,7 @@ function popup(text,bkgb) {
   
   setTimeout(function() {
     popupH.style.width = "600px"
-    popupH.style.height = "inherit"
+    popupH.style.height = "auto"
   },50)
     setTimeout(function() {popupcontent.innerHTML = text;},500)
   }
