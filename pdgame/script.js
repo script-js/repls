@@ -87,6 +87,9 @@ function tgtmove() {
 
 function popup(text,bkgb) {
   if (!text) {
+    ship.style = "position:absolute; right:20px; top:10px; display:block;";
+    slingshot.style.display = "block"
+    resetSling()
     popupH.style.width = "2px"
     popupH.style.height = "2px"
     popupcontent.innerHTML = "";
